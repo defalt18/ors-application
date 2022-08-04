@@ -8,7 +8,7 @@
         <af:gridRow height="100%" id="gr1">
           <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
             <!-- Content -->
-            <h:outputLabel value="LoginPage" id="ol1"/>
+            <h:outputLabel value="Welcome Page" id="ol1"/>
           </af:gridCell>
         </af:gridRow>
       </af:panelGridLayout>
