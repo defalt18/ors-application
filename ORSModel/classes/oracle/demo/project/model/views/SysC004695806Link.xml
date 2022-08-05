@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC004695806Link"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="oracle.demo.project.model.entities.SysC004695806Assoc">
+  <ViewLinkDefEnd
+    Name="CredsVO"
+    Cardinality="1"
+    Source="true"
+    Owner="oracle.demo.project.model.views.CredsVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="CredsVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.demo.project.model.views.CredsVO.Username"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EmployeesVO"
+    Cardinality="-1"
+    Owner="oracle.demo.project.model.views.EmployeesVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="EmployeesVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.demo.project.model.views.EmployeesVO.Username"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

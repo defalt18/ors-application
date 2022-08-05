@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="QuestionsVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="QuestionEO"
+    Entity="oracle.demo.project.model.entities.QuestionEO"/>
+  <ViewAttribute
+    Name="Questionid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Questionid"
+    EntityUsage="QuestionEO"
+    AliasName="QUESTIONID"/>
+  <ViewAttribute
+    Name="Questionlevel"
+    PrecisionRule="true"
+    EntityAttrName="Questionlevel"
+    EntityUsage="QuestionEO"
+    AliasName="QUESTIONLEVEL"/>
+  <ViewAttribute
+    Name="Jobid"
+    PrecisionRule="true"
+    EntityAttrName="Jobid"
+    EntityUsage="QuestionEO"
+    AliasName="JOBID"/>
+  <ViewAttribute
+    Name="Choices"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="Choices"
+    EntityUsage="QuestionEO"
+    AliasName="CHOICES"/>
+  <ViewAttribute
+    Name="Correctindex"
+    PrecisionRule="true"
+    EntityAttrName="Correctindex"
+    EntityUsage="QuestionEO"
+    AliasName="CORRECTINDEX"/>
+</ViewObject>

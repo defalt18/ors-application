@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="LoginPageDef"
+                Package="oracle.demo.project.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CredsVO1" RangeSize="25" DataControl="ORSAppModuleDataControl" id="CredsVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CredsVO1Iterator" id="Username">
+      <AttrNames>
+        <Item Value="Username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CredsVO1Iterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
