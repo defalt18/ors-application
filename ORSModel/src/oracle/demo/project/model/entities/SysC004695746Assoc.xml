@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC004695746Assoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="CandidateEO"
+    Cardinality="1"
+    Source="true"
+    Owner="oracle.demo.project.model.entities.CandidateEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CandidateEO"/>
+      <Attr Name="_foreignKey" Value="oracle.demo.project.model.entities.CandidateEO.SysC004695705"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.demo.project.model.entities.CandidateEO.Candidateid"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="InterviewProcessEO"
+    Cardinality="-1"
+    Owner="oracle.demo.project.model.entities.InterviewProcessEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InterviewProcessEO"/>
+      <Attr Name="_foreignKey" Value="oracle.demo.project.model.entities.InterviewProcessEO.SysC004695746"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.demo.project.model.entities.InterviewProcessEO.Candidateid"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

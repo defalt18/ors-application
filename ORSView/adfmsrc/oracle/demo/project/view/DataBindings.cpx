@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="oracle.demo.project.view" ClientType="Generic">
+  <pageMap>
+    <page path="/SignUpPage.jsf" usageId="oracle_demo_project_view_SignUpPagePageDef"/>
+    <page path="/Login.jsf" usageId="oracle_demo_project_view_LoginPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="oracle_demo_project_view_SignUpPagePageDef" path="oracle.demo.project.view.pageDefs.SignUpPagePageDef"/>
+    <page id="oracle_demo_project_view_LoginPageDef" path="oracle.demo.project.view.pageDefs.LoginPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ORSAppModuleDataControl" Package="oracle.demo.project.model.entities"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ORSAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>
