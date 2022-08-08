@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="JobPortalPageDef"
+                Package="oracle.demo.project.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="JobsVO" RangeSize="25" DataControl="ORSAppModuleDataControl1" id="JobsVOIterator"/>
+    <searchRegion Criteria="JobsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="JobsVOIterator" id="JobsVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="JobsVOIterator" id="JobsVO">
+      <nodeDefinition DefName="oracle.demo.project.model.views.JobsVO" Name="JobsVO0">
+        <AttrNames>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Experiencelevel"/>
+          <Item Value="Noofvacancies"/>
+          <Item Value="Skillset"/>
+          <Item Value="Jobpostedon"/>
+          <Item Value="Deadline"/>
+          <Item Value="Noofcandidatesapplied"/>
+          <Item Value="Jobdesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

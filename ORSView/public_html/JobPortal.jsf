@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="testpage.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <af:panelSplitter orientation="horizontal" splitterPosition="100" id="ps1">
+                            <f:facet name="first">
+                                <!-- Left -->
+                            </f:facet>
+                            <f:facet name="second">
+                                <!-- Content -->
+                                <af:panelGroupLayout layout="vertical" id="pgl2">
+                                    <af:panelHeader text="JobEO" id="ph1">
+                                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                                  value="#{bindings.JobsVOCriteriaQuery.queryDescriptor}"
+                                                  model="#{bindings.JobsVOCriteriaQuery.queryModel}"
+                                                  queryListener="#{bindings.JobsVOCriteriaQuery.processQuery}"
+                                                  queryOperationListener="#{bindings.JobsVOCriteriaQuery.processQueryOperation}"
+                                                  resultComponentId="::resId1"/>
+                                    </af:panelHeader>
+                                    <af:table value="#{bindings.JobsVO.collectionModel}" var="row"
+                                              rows="#{bindings.JobsVO.rangeSize}"
+                                              emptyText="#{bindings.JobsVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.JobsVO.collectionModel.selectedRow}"
+                                              rowSelection="multiple" fetchSize="#{bindings.JobsVO.rangeSize}"
+                                              filterModel="#{bindings.JobsVOCriteriaQuery.queryDescriptor}"
+                                              filterVisible="true"
+                                              queryListener="#{bindings.JobsVOCriteriaQuery.processQuery}"
+                                              varStatus="vs" id="resId1">
+                                        <af:column sortProperty="#{bindings.JobsVO.hints.Jobid.name}" filterable="true"
+                                                   sortable="true" headerText="#{bindings.JobsVO.hints.Jobid.label}"
+                                                   id="resId1c1">
+                                            <af:outputText value="#{row.Jobid}"
+                                                           shortDesc="#{bindings.JobsVO.hints.Jobid.tooltip}" id="ot1">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.JobsVO.hints.Jobid.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO.hints.Jobname.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.JobsVO.hints.Jobname.label}" id="resId1c2">
+                                            <af:outputText value="#{row.Jobname}"
+                                                           shortDesc="#{bindings.JobsVO.hints.Jobname.tooltip}"
+                                                           id="ot2"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO.hints.Noofvacancies.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.JobsVO.hints.Noofvacancies.label}"
+                                                   id="resId1c3">
+                                            <af:outputText value="#{row.Noofvacancies}"
+                                                           shortDesc="#{bindings.JobsVO.hints.Noofvacancies.tooltip}"
+                                                           id="ot3">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.JobsVO.hints.Noofvacancies.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO.hints.Skillset.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.JobsVO.hints.Skillset.label}" id="resId1c4">
+                                            <af:outputText value="#{row.Skillset}"
+                                                           shortDesc="#{bindings.JobsVO.hints.Skillset.tooltip}"
+                                                           id="ot4"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO.hints.Jobpostedon.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.JobsVO.hints.Jobpostedon.label}"
+                                                   id="resId1c5">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.JobsVOCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Jobpostedon.value}"
+                                                              id="id1">
+                                                    <af:convertDateTime pattern="#{bindings.JobsVO.hints.Jobpostedon.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:outputText value="#{row.Jobpostedon}"
+                                                           shortDesc="#{bindings.JobsVO.hints.Jobpostedon.tooltip}"
+                                                           id="ot5">
+                                                <af:convertDateTime pattern="#{bindings.JobsVO.hints.Jobpostedon.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO.hints.Deadline.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.JobsVO.hints.Deadline.label}" id="resId1c6">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.JobsVOCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Deadline.value}"
+                                                              id="id2">
+                                                    <af:convertDateTime pattern="#{bindings.JobsVO.hints.Deadline.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:outputText value="#{row.Deadline}"
+                                                           shortDesc="#{bindings.JobsVO.hints.Deadline.tooltip}"
+                                                           id="ot6">
+                                                <af:convertDateTime pattern="#{bindings.JobsVO.hints.Deadline.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO.hints.Noofcandidatesapplied.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.JobsVO.hints.Noofcandidatesapplied.label}"
+                                                   id="resId1c7">
+                                            <af:outputText value="#{row.Noofcandidatesapplied}"
+                                                           shortDesc="#{bindings.JobsVO.hints.Noofcandidatesapplied.tooltip}"
+                                                           id="ot7">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.JobsVO.hints.Noofcandidatesapplied.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column id="c1">
+                                            <af:button text="Apply" id="b1"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

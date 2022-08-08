@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <view id="Login">
-    <page>/Login.jsf</page>
-  </view>
   <view id="DashboardPage">
     <page>/DashboardPage.jsf</page>
+  </view>
+  <view id="LoginPage">
+    <page>/LoginPage.jsf</page>
   </view>
   <view id="SignUpPage">
     <page>/SignUpPage.jsf</page>
   </view>
-  <control-flow-rule id="__3">
-    <from-activity-id>Login</from-activity-id>
-    <control-flow-case id="__4">
+  <control-flow-rule id="__8">
+    <from-activity-id>LoginPage</from-activity-id>
+    <control-flow-case id="__9">
       <from-outcome>goToDashboard</from-outcome>
       <to-activity-id>DashboardPage</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
-  <control-flow-rule id="__5">
+  <control-flow-rule id="__2">
     <from-activity-id>SignUpPage</from-activity-id>
-    <control-flow-case id="__6">
+    <control-flow-case id="__3">
       <from-outcome>goToDashboard</from-outcome>
       <to-activity-id>DashboardPage</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
-  <managed-bean id="__1">
-    <managed-bean-name>LoginAuthBean</managed-bean-name>
-    <managed-bean-class>oracle.demo.project.view.LoginAuth</managed-bean-class>
+  <managed-bean id="__7">
+    <managed-bean-name>LoginPageBean</managed-bean-name>
+    <managed-bean-class>oracle.demo.project.view.LoginPageBean</managed-bean-class>
     <managed-bean-scope>backingBean</managed-bean-scope>
   </managed-bean>
-  <managed-bean id="__2">
+  <managed-bean id="__1">
     <managed-bean-name>SignUpBean</managed-bean-name>
     <managed-bean-class>oracle.demo.project.view.SignUpBean</managed-bean-class>
     <managed-bean-scope>backingBean</managed-bean-scope>

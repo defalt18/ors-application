@@ -4,13 +4,22 @@
   <pageMap>
     <page path="/SignUpPage.jsf" usageId="oracle_demo_project_view_SignUpPagePageDef"/>
     <page path="/Login.jsf" usageId="oracle_demo_project_view_LoginPageDef"/>
+    <page path="/JobPortal.jsf" usageId="oracle_demo_project_view_JobPortalPageDef"/>
+    <page path="/testpage.jsf" usageId="oracle_demo_project_view_testpagePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="oracle_demo_project_view_SignUpPagePageDef" path="oracle.demo.project.view.pageDefs.SignUpPagePageDef"/>
     <page id="oracle_demo_project_view_LoginPageDef" path="oracle.demo.project.view.pageDefs.LoginPageDef"/>
+    <page id="oracle_demo_project_view_JobPortalPageDef" path="oracle.demo.project.view.pageDefs.JobPortalPageDef"/>
+    <page id="oracle_demo_project_view_testpagePageDef" path="oracle.demo.project.view.pageDefs.testpagePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ORSAppModuleDataControl" Package="oracle.demo.project.model.entities"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ORSAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ORSAppModuleDataControl1" Package="oracle.demo.project.model.services"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                      SupportsSortCollection="true" Configuration="ORSAppModuleLocal" syncMode="Immediate"

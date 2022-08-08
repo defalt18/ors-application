@@ -1,5 +1,13 @@
 package oracle.demo.project.model.services;
 
+import java.util.UUID;
+
+import oracle.demo.project.model.entities.UserData;
+
+import oracle.jbo.Row;
+import oracle.jbo.ViewCriteria;
+import oracle.jbo.ViewCriteriaRow;
+import oracle.jbo.ViewObject;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewObjectImpl;
 // ---------------------------------------------------------------------
@@ -38,5 +46,70 @@ public class ORSAppModuleImpl extends ApplicationModuleImpl {
     public ViewObjectImpl getEmployeesVO() {
         return (ViewObjectImpl) findViewObject("EmployeesVO");
     }
+
+    /**
+     * Container's getter for JobsVO1.
+     * @return JobsVO1
+     */
+    public ViewObjectImpl getJobsVO() {
+        return (ViewObjectImpl) findViewObject("JobsVO");
+    }
+    
+    public UserData validateLoginCredentials(String username, String password) {
+            UserData user = null;
+            ViewObject vo = getCredsVO();
+            ViewCriteria vc = vo.createViewCriteria();
+            ViewCriteriaRow vcr = vc.createViewCriteriaRow();
+            vcr.setAttribute("Username", username);
+            vcr.setAttribute("Password", password);
+            vc.add(vcr);
+            vo.applyViewCriteria(vc);
+            vo.executeQuery();
+            if (vo.hasNext()) {
+                user = new UserData();
+                Row row = vo.next();
+                user.setUsername(row.getAttribute("Username").toString());
+            }
+            return user;
+        }
+        
+        public boolean checkIfUserAlreadyExist(String username) {
+            UserData user = validateLoginCredentials(username, "");
+            if(user == null) return false;
+            return true;
+        }
+        
+        public String registerUser(String firstName, String lastName, String phoneNumber, String username, String password, String skillSet) {
+            ViewObject credsVO = getCredsVO();
+            ViewObject candidateVO = getCandidatesVO();
+            
+            if(checkIfUserAlreadyExist(username))
+                return "user already exists";
+            
+            Row newCreds = credsVO.createRow();
+            newCreds.setAttribute("Username", username);
+            newCreds.setAttribute("Password", password);
+            newCreds.setAttribute("UserType", 0);
+            credsVO.insertRow(newCreds);
+            
+            Row newUserDetail = candidateVO.createRow();
+            
+            String candidateId = UUID.randomUUID().toString();
+            newUserDetail.setAttribute("Username", username);
+            newUserDetail.setAttribute("Firstname", firstName);
+            newUserDetail.setAttribute("Lastname", lastName);
+            newUserDetail.setAttribute("Contact", phoneNumber);
+            newUserDetail.setAttribute("Skillset", skillSet);
+            newUserDetail.setAttribute("Candidateid", candidateId);
+            candidateVO.insertRow(newUserDetail);
+            
+            credsVO.executeQuery();
+            candidateVO.executeQuery();
+            
+            this.getDBTransaction().commit();
+
+            return "success";
+        }
+
 }
 

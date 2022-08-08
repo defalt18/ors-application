@@ -26,6 +26,9 @@
   <ViewUsage
     Name="EmployeesVO"
     ViewObjectName="oracle.demo.project.model.views.EmployeesVO"/>
+  <ViewUsage
+    Name="JobsVO"
+    ViewObjectName="oracle.demo.project.model.views.JobsVO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="oracle.demo.project.model.ORSModelBundle"/>

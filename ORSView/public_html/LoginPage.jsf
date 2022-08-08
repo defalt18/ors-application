@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="LoginPage.jsf" id="d1">
+        <af:form id="f1">
+            <h:outputLabel value="Applicant Login" id="ol1"
+                           style="font-size:xx-large; font-weight:300; color:#2d70cd; margin: 20px 20px;"/>
+            <af:inputText label="Username" id="it1" columns="30" value='#{backingBeanScope.LoginPageBean.username}'/>
+            <af:inputText label="Password" id="it2" columns="30" secret='true' value='#{backingBeanScope.LoginPageBean.password}'/>
+            <af:button text="Login" id="b1" action='#{backingBeanScope.LoginPageBean.onLogin}'>
+                <af:setPropertyListener from="#{backingBeanScope.LoginPageBean.username}" to="#{pageFlowScope.username}"
+                                        type="action"/>
+            </af:button>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:LoginPageBean-->
+</f:view>

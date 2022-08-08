@@ -7,53 +7,26 @@
         <af:form id="f1" inlineStyle="padding: 20px 20px;">
             <h:outputLabel value="Applicant Registration" id="ol1"
                            style="font-size:xx-large; font-weight:300; color:#2d70cd; margin: 20px 20px;"/>
-            <af:panelFormLayout id="pfl1">
-                <af:inputText value="#{bindings.Contact.inputValue}" label="#{bindings.Contact.hints.label}"
-                              required="#{bindings.Contact.hints.mandatory}"
-                              columns="#{bindings.Contact.hints.displayWidth}"
-                              maximumLength="#{bindings.Contact.hints.precision}"
-                              shortDesc="#{bindings.Contact.hints.tooltip}" id="it1">
-                    <f:validator binding="#{bindings.Contact.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.Firstname.inputValue}" label="#{bindings.Firstname.hints.label}"
-                              required="#{bindings.Firstname.hints.mandatory}"
-                              columns="#{bindings.Firstname.hints.displayWidth}"
-                              maximumLength="#{bindings.Firstname.hints.precision}"
-                              shortDesc="#{bindings.Firstname.hints.tooltip}" id="it2">
-                    <f:validator binding="#{bindings.Firstname.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.Lastname.inputValue}" label="#{bindings.Lastname.hints.label}"
-                              required="#{bindings.Lastname.hints.mandatory}"
-                              columns="#{bindings.Lastname.hints.displayWidth}"
-                              maximumLength="#{bindings.Lastname.hints.precision}"
-                              shortDesc="#{bindings.Lastname.hints.tooltip}" id="it3">
-                    <f:validator binding="#{bindings.Lastname.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.Skillset.inputValue}" label="#{bindings.Skillset.hints.label}"
-                              required="#{bindings.Skillset.hints.mandatory}"
-                              columns="#{bindings.Skillset.hints.displayWidth}"
-                              maximumLength="#{bindings.Skillset.hints.precision}"
-                              shortDesc="#{bindings.Skillset.hints.tooltip}" id="it4">
-                    <f:validator binding="#{bindings.Skillset.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.Username.inputValue}" label="#{bindings.Username.hints.label}"
-                              required="#{bindings.Username.hints.mandatory}"
-                              columns="#{bindings.Username.hints.displayWidth}"
-                              maximumLength="#{bindings.Username.hints.precision}"
-                              shortDesc="#{bindings.Username.hints.tooltip}" id="it5">
-                    <f:validator binding="#{bindings.Username.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.Password.inputValue}" label="#{bindings.Password.hints.label}"
-                              required="#{bindings.Password.hints.mandatory}"
-                              columns="#{bindings.Password.hints.displayWidth}"
-                              maximumLength="#{bindings.Password.hints.precision}"
-                              shortDesc="#{bindings.Password.hints.tooltip}" id="it6">
-                    <f:validator binding="#{bindings.Password.validator}"/>
-                </af:inputText>
-                <f:facet name="footer">
-                    <af:button text="Register" id="b1" />
-                </f:facet>
-            </af:panelFormLayout>
+            <af:inputText label="First Name" id="it1" columns="30" value="#{backingBeanScope.SignUpBean.firstName}"/>
+            <af:inputText label="Last Name" id="it2" columns="30" value="#{backingBeanScope.SignUpBean.lastName}"/>
+            <af:selectManyChoice label="Select Skills" requiredMessageDetail="Select any skills you would like to add"
+                                 id="smc1" valueChangeListener="#{backingBeanScope.SignUpBean.onChangeSelect}">
+                <af:selectItem label="JAVA" value="JAVA" id="si1"/>
+                <af:selectItem label="JAVASCRIPT" value="JAVASCRIPT" id="si2"/>
+                <af:selectItem label="UI / UX" value="UI / UX" id="si3"/>
+                <af:selectItem label="NODE" value="NODE" id="si4"/>
+                <af:selectItem label="FRONTEND" value="FRONTEND" id="si5"/>
+                <af:selectItem label="DISTRIBUTED SYSTEMS" value="DISTRIBUTED_SYSTEMS" id="si6"/>
+            </af:selectManyChoice>
+            <af:inputText label="Contact Number" id="it8" placeholder="+91 123-456789"
+                                   columns="30" value="#{backingBeanScope.SignUpBean.phoneNumber}" maximumLength="10"/>
+            <af:inputText label="Username" id="it4" columns="30" value="#{backingBeanScope.SignUpBean.username}" />
+            <af:inputText label="Password" id="it7" columns="30" value='#{backingBeanScope.SignUpBean.password}'
+                          secret="true"/>
+            <af:button text="Register" id="b1" action='#{backingBeanScope.SignUpBean.onRegister}' >
+                <af:setPropertyListener from="#{backingBeanScope.SignUpBean.username}" to="#{pageFlowScope.username}"
+                                        type="action"/>
+            </af:button>
         </af:form>
     </af:document>
     <!--oracle-jdev-comment:preferred-managed-bean-name:SignUpBean-->
