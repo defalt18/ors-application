@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View6">
+      <property
+         name="activityId">testpage</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">447.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>testpage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">316.23438</property>
+      <property
+         name="page">/testpage.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <MethodCall
+      id="MethodCall10">
+      <property
+         name="activityId">ExecuteWithParams1</property>
+      <property
+         name="x">110.3457</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">277.4336</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="MethodCall10"
+      to="View6">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">R50,152.05833,277.36722,405.78735,316.16797,L50</property>
+   </ControlFlowCase>
+</SDM>

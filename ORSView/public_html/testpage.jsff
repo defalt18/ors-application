@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:facelets="http://xmlns.oracle.com/jdev/webapp/facelets"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:messages id="m1"/>
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr2">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"/>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

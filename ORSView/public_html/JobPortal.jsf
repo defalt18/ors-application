@@ -114,9 +114,110 @@
                                             </af:outputText>
                                         </af:column>
                                         <af:column id="c1">
-                                            <af:button text="Apply" id="b1"/>
+                                            <af:button id="l1" text="Apply"
+                                                     action="#{backingBeanScope.JobDescPopupBean.onApply(row.Jobid)}">
+                                                <af:showPopupBehavior popupId="::p1" triggerType="click"/>
+                                            </af:button>
                                         </af:column>
                                     </af:table>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                        <af:panelWindow id="pw1">
+                                            <af:panelFormLayout id="pfl1">
+                                                <af:inputText value="#{bindings.Jobid.inputValue}"
+                                                              label="#{bindings.Jobid.hints.label}"
+                                                              required="#{bindings.Jobid.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.Jobid.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Jobid.hints.precision}"
+                                                              shortDesc="#{bindings.Jobid.hints.tooltip}" id="it1">
+                                                    <f:validator binding="#{bindings.Jobid.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.Jobid.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Jobname.inputValue}"
+                                                              label="#{bindings.Jobname.hints.label}"
+                                                              required="#{bindings.Jobname.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.Jobname.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Jobname.hints.precision}"
+                                                              shortDesc="#{bindings.Jobname.hints.tooltip}" id="it2">
+                                                    <f:validator binding="#{bindings.Jobname.validator}"/>
+                                                </af:inputText>
+                                                <af:inputDate value="#{bindings.Jobpostedon.inputValue}" readOnly="true"
+                                                              label="#{bindings.Jobpostedon.hints.label}"
+                                                              required="#{bindings.Jobpostedon.hints.mandatory}"
+                                                              columns="#{bindings.Jobpostedon.hints.displayWidth}"
+                                                              shortDesc="#{bindings.Jobpostedon.hints.tooltip}"
+                                                              id="id3">
+                                                    <f:validator binding="#{bindings.Jobpostedon.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.Jobpostedon.format}"/>
+                                                </af:inputDate>
+                                                <af:inputText value="#{bindings.Experiencelevel.inputValue}"
+                                                              label="#{bindings.Experiencelevel.hints.label}"
+                                                              required="#{bindings.Experiencelevel.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.Experiencelevel.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Experiencelevel.hints.precision}"
+                                                              shortDesc="#{bindings.Experiencelevel.hints.tooltip}"
+                                                              id="it3">
+                                                    <f:validator binding="#{bindings.Experiencelevel.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Jobdesc.inputValue}"
+                                                              label="#{bindings.Jobdesc.hints.label}"
+                                                              required="#{bindings.Jobdesc.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.Jobdesc.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Jobdesc.hints.precision}"
+                                                              shortDesc="#{bindings.Jobdesc.hints.tooltip}" id="it4">
+                                                    <f:validator binding="#{bindings.Jobdesc.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Skillset.inputValue}"
+                                                              label="#{bindings.Skillset.hints.label}"
+                                                              required="#{bindings.Skillset.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.Skillset.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Skillset.hints.precision}"
+                                                              shortDesc="#{bindings.Skillset.hints.tooltip}" id="it5">
+                                                    <f:validator binding="#{bindings.Skillset.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Noofvacancies.inputValue}"
+                                                              label="#{bindings.Noofvacancies.hints.label}"
+                                                              required="#{bindings.Noofvacancies.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.Noofvacancies.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Noofvacancies.hints.precision}"
+                                                              shortDesc="#{bindings.Noofvacancies.hints.tooltip}"
+                                                              id="it6">
+                                                    <f:validator binding="#{bindings.Noofvacancies.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.Noofvacancies.format}"/>
+                                                </af:inputText>
+                                                <af:inputDate value="#{bindings.Deadline.inputValue}" readOnly="true"
+                                                              label="#{bindings.Deadline.hints.label}"
+                                                              required="#{bindings.Deadline.hints.mandatory}"
+                                                              columns="#{bindings.Deadline.hints.displayWidth}"
+                                                              shortDesc="#{bindings.Deadline.hints.tooltip}" id="id4">
+                                                    <f:validator binding="#{bindings.Deadline.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.Deadline.format}"/>
+                                                </af:inputDate>
+                                                <af:inputText value="#{bindings.Noofcandidatesapplied.inputValue}"
+                                                              label="#{bindings.Noofcandidatesapplied.hints.label}"
+                                                              required="#{bindings.Noofcandidatesapplied.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.Noofcandidatesapplied.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Noofcandidatesapplied.hints.precision}"
+                                                              shortDesc="#{bindings.Noofcandidatesapplied.hints.tooltip}"
+                                                              id="it7">
+                                                    <f:validator binding="#{bindings.Noofcandidatesapplied.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.Noofcandidatesapplied.format}"/>
+                                                </af:inputText>
+                                                <f:facet name="footer">
+                                                    <af:button text="Submit" id="b2" action="#{backingBeanScope.JobDescPopupBean.onSubmit}"/>
+                                                </f:facet>
+                                            </af:panelFormLayout>
+                                        </af:panelWindow>
+                                    </af:popup>
                                 </af:panelGroupLayout>
                             </f:facet>
                         </af:panelSplitter>

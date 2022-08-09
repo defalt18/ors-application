@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
              SeparateXMLFiles="false" Package="oracle.demo.project.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
   <pageMap>
     <page path="/SignUpPage.jsf" usageId="oracle_demo_project_view_SignUpPagePageDef"/>
     <page path="/Login.jsf" usageId="oracle_demo_project_view_LoginPageDef"/>
     <page path="/JobPortal.jsf" usageId="oracle_demo_project_view_JobPortalPageDef"/>
     <page path="/testpage.jsf" usageId="oracle_demo_project_view_testpagePageDef"/>
+    <page path="/testpage.jsff" usageId="oracle_demo_project_view_testpagePageDef1"/>
+    <page path="/WEB-INF/checkjobDesc.xml#checkjobDesc@ExecuteWithParams1"
+          usageId="oracle_demo_project_view_checkjobDesc_checkjobDesc_ExecuteWithParams1PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="oracle_demo_project_view_SignUpPagePageDef" path="oracle.demo.project.view.pageDefs.SignUpPagePageDef"/>
     <page id="oracle_demo_project_view_LoginPageDef" path="oracle.demo.project.view.pageDefs.LoginPageDef"/>
     <page id="oracle_demo_project_view_JobPortalPageDef" path="oracle.demo.project.view.pageDefs.JobPortalPageDef"/>
     <page id="oracle_demo_project_view_testpagePageDef" path="oracle.demo.project.view.pageDefs.testpagePageDef"/>
+    <page id="oracle_demo_project_view_testpagePageDef1" path="oracle.demo.project.view.pageDefs.testpagePageDef1"/>
+    <page id="oracle_demo_project_view_checkjobDesc_checkjobDesc_ExecuteWithParams1PageDef"
+          path="oracle.demo.project.view.pageDefs.checkjobDesc_checkjobDesc_ExecuteWithParams1PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ORSAppModuleDataControl" Package="oracle.demo.project.model.entities"

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="checkjobDesc_checkjobDesc_ExecuteWithParamsPageDef" Package="oracle.demo.project.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="JobsVO" RangeSize="25" DataControl="ORSAppModuleDataControl1" id="JobsVOIterator"/>
+    <iterator Binds="JobsVO" RangeSize="10" DataControl="ORSAppModuleDataControl1" id="JobsVOIterator1"/>
+    <iterator Binds="JobsVO" RangeSize="10" DataControl="ORSAppModuleDataControl" id="JobsVOIterator2"/>
+    <iterator Binds="JobsVO" RangeSize="10" DataControl="ORSAppModuleDataControl" id="JobsVOIterator3" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="JobsVOIterator3" id="ExecuteWithParams" RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="job_id" NDValue="jobid" NDType="java.math.BigDecimal"/>
+      <NamedData NDName="job_name" NDType="java.lang.String"/>
+      <NamedData NDName="experience_level" NDType="java.lang.String"/>
+      <NamedData NDName="skills" NDType="java.lang.String"/>
+      <NamedData NDName="job_postedon" NDType="java.sql.Timestamp"/>
+    </action>
+  </bindings>
+</pageDefinition>

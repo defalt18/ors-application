@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="checkjobDesc">
+    <default-activity>ExecuteWithParams1</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>jobid</name>
+      <value>#{pageFlowScope.jobid}</value>
+    </input-parameter-definition>
+    <return-value-definition id="__2">
+      <name>jobid</name>
+      <value>#{pageFlowScope.jobid}</value>
+    </return-value-definition>
+    <view id="testpage">
+      <page>/testpage.jsff</page>
+    </view>
+    <method-call id="ExecuteWithParams1">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__6">
+      <from-activity-id>ExecuteWithParams1</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>testpage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

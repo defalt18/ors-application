@@ -9,6 +9,9 @@
   <view id="SignUpPage">
     <page>/SignUpPage.jsf</page>
   </view>
+  <view id="testpage">
+    <page>/testpage.jsf</page>
+  </view>
   <control-flow-rule id="__8">
     <from-activity-id>LoginPage</from-activity-id>
     <control-flow-case id="__9">
@@ -23,6 +26,13 @@
       <to-activity-id>DashboardPage</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
+  <control-flow-rule id="__5">
+    <from-activity-id>DashboardPage</from-activity-id>
+    <control-flow-case id="__6">
+      <from-outcome>goToTest</from-outcome>
+      <to-activity-id>testpage</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
   <managed-bean id="__7">
     <managed-bean-name>LoginPageBean</managed-bean-name>
     <managed-bean-class>oracle.demo.project.view.LoginPageBean</managed-bean-class>
@@ -31,6 +41,11 @@
   <managed-bean id="__1">
     <managed-bean-name>SignUpBean</managed-bean-name>
     <managed-bean-class>oracle.demo.project.view.SignUpBean</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__10">
+    <managed-bean-name>JobDescPopupBean</managed-bean-name>
+    <managed-bean-class>oracle.demo.project.view.JobDescPopupBean</managed-bean-class>
     <managed-bean-scope>backingBean</managed-bean-scope>
   </managed-bean>
 </adfc-config>

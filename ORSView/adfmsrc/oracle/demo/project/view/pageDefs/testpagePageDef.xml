@@ -4,7 +4,8 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="JobsVO" RangeSize="25" DataControl="ORSAppModuleDataControl1" id="JobsVOIterator"/>
+    <iterator Binds="JobsVO" RangeSize="25" DataControl="ORSAppModuleDataControl1" id="JobsVOIterator"
+              ChangeEventPolicy="ppr"/>
     <searchRegion Criteria="JobsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="JobsVOIterator" id="JobsVOCriteriaQuery"/>
   </executables>
@@ -22,5 +23,54 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="JobsVOIterator" id="Jobid">
+      <AttrNames>
+        <Item Value="Jobid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Jobname">
+      <AttrNames>
+        <Item Value="Jobname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Jobpostedon">
+      <AttrNames>
+        <Item Value="Jobpostedon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Experiencelevel">
+      <AttrNames>
+        <Item Value="Experiencelevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Jobdesc">
+      <AttrNames>
+        <Item Value="Jobdesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Skillset">
+      <AttrNames>
+        <Item Value="Skillset"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Noofvacancies">
+      <AttrNames>
+        <Item Value="Noofvacancies"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Deadline">
+      <AttrNames>
+        <Item Value="Deadline"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Noofcandidatesapplied">
+      <AttrNames>
+        <Item Value="Noofcandidatesapplied"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="JobsVOIterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

@@ -40,7 +40,7 @@
       <property
          name="fromOutcome">goToDashboard</property>
       <property
-         name="sdm:polyPoints">R50,311.5,259.30078,580.31055,233.30078,L50</property>
+         name="sdm:polyPoints">R50,311.5,259.30078,578.8782,229.80078,L46</property>
    </ControlFlowCase>
    <View
       id="View8">
@@ -66,5 +66,30 @@
          name="fromOutcome">goToDashboard</property>
       <property
          name="sdm:polyPoints">T50,407.07812,377.30078,580.31055,236.80078,L54</property>
+   </ControlFlowCase>
+   <View
+      id="View9">
+      <property
+         name="activityId">testpage</property>
+      <property
+         name="x">632.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>testpage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">422.23438</property>
+      <property
+         name="page">/testpage.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View3"
+      to="View9">
+      <property
+         name="fromOutcome">goToTest</property>
+      <property
+         name="sdm:polyPoints">B50,621.31055,287.30078,632.5,368.16797,T50</property>
    </ControlFlowCase>
 </SDM>

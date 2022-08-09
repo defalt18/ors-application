@@ -12,7 +12,33 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="QuestionsVO1"
+    ViewObjectName="oracle.demo.project.model.views.QuestionsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="QuestionsVO"
+    ViewObjectName="oracle.demo.project.model.views.QuestionsVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Questionid"
+    ListVOName="QuestionsVO"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Questionid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Choices"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Choices"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="QuestionEO"
     Entity="oracle.demo.project.model.entities.QuestionEO"/>
@@ -22,7 +48,15 @@
     PrecisionRule="true"
     EntityAttrName="Questionid"
     EntityUsage="QuestionEO"
-    AliasName="QUESTIONID"/>
+    AliasName="QUESTIONID"
+    LOVName="LOV_Questionid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Questionlevel"
     PrecisionRule="true"
