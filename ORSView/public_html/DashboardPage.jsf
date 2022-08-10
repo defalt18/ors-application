@@ -8,6 +8,10 @@
                 <af:gridRow height="100%" id="gr1">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                         <h:outputLabel value="Applicant Dashboard" id="ol1" style="font-size:xx-large; font-weight:300; color:#2d70cd; margin:20px 28px;"/>
+                        <af:activeOutputText value="#{sessionScope.user.getUsername()}" id="aot1"/>
+                        <af:link text="link 1" id="l1" action="goToPortal">
+                            <af:spacer id="s1"/>
+                        </af:link>
                     </af:gridCell>
                 </af:gridRow>
             </af:panelGridLayout>

@@ -9,14 +9,22 @@
   <view id="SignUpPage">
     <page>/SignUpPage.jsf</page>
   </view>
-  <view id="testpage">
-    <page>/testpage.jsf</page>
+  <view id="JobPortal">
+    <page>/JobPortal.jsf</page>
   </view>
   <control-flow-rule id="__8">
     <from-activity-id>LoginPage</from-activity-id>
     <control-flow-case id="__9">
       <from-outcome>goToDashboard</from-outcome>
       <to-activity-id>DashboardPage</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__11">
+      <from-outcome>goToSignUp</from-outcome>
+      <to-activity-id>SignUpPage</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__14">
+      <from-outcome>goToPortal</from-outcome>
+      <to-activity-id>JobPortal</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__2">
@@ -26,11 +34,22 @@
       <to-activity-id>DashboardPage</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
-  <control-flow-rule id="__5">
-    <from-activity-id>DashboardPage</from-activity-id>
+  <control-flow-rule id="__4">
+    <from-activity-id>JobPortal</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>goToDashboard</from-outcome>
+      <to-activity-id>DashboardPage</to-activity-id>
+    </control-flow-case>
     <control-flow-case id="__6">
-      <from-outcome>goToTest</from-outcome>
-      <to-activity-id>testpage</to-activity-id>
+      <from-outcome>goToLogin</from-outcome>
+      <to-activity-id>LoginPage</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__12">
+    <from-activity-id>DashboardPage</from-activity-id>
+    <control-flow-case id="__13">
+      <from-outcome>goToPortal</from-outcome>
+      <to-activity-id>JobPortal</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__7">

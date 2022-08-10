@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
     <af:document title="testpage.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
@@ -14,6 +15,7 @@
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
                         <af:panelSplitter orientation="horizontal" splitterPosition="100" id="ps1">
                             <f:facet name="first">
+                                <af:activeOutputText value="#{sessionScope.User.getUsername()}" id="aot1"/>
                                 <!-- Left -->
                             </f:facet>
                             <f:facet name="second">
@@ -213,7 +215,7 @@
                                                                       pattern="#{bindings.Noofcandidatesapplied.format}"/>
                                                 </af:inputText>
                                                 <f:facet name="footer">
-                                                    <af:button text="Submit" id="b2" action="#{backingBeanScope.JobDescPopupBean.onSubmit}"/>
+                                                    <af:button text="Submit" id="b2" action="#{backingBeanScope.JobDescPopupBean.onSubmit(bindings.Jobid.inputValue)}"/>
                                                 </f:facet>
                                             </af:panelFormLayout>
                                         </af:panelWindow>

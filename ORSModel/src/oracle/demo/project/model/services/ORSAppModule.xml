@@ -35,8 +35,13 @@
   <ViewUsage
     Name="ApplicationsVO"
     ViewObjectName="oracle.demo.project.model.views.ApplicationsVO"/>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="oracle.demo.project.model.ORSModelBundle"/>
-  </ResourceBundle>
+  <ViewUsage
+    Name="CredsForCandidates"
+    ViewObjectName="oracle.demo.project.model.views.CandidatesVO"/>
+  <ViewLinkUsage
+    Name="SysC004695805Link1"
+    ViewLinkObjectName="oracle.demo.project.model.views.SysC004695805Link"
+    SrcViewUsageName="oracle.demo.project.model.services.ORSAppModule.CredsVO"
+    DstViewUsageName="oracle.demo.project.model.services.ORSAppModule.CredsForCandidates"
+    Reversed="false"/>
 </AppModule>

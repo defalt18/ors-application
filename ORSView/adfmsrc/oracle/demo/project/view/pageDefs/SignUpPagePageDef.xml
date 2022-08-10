@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="CandidatesVO1" RangeSize="25" DataControl="ORSAppModuleDataControl" id="CandidatesVO1Iterator"/>
+    <iterator Binds="CredsForCandidates" RangeSize="25" DataControl="ORSAppModuleDataControl" id="CandidatesVO1Iterator"/>
     <iterator Binds="CredsVO1" RangeSize="10" DataControl="ORSAppModuleDataControl" id="CredsVO1Iterator"/>
   </executables>
   <bindings>

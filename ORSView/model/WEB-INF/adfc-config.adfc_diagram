@@ -40,7 +40,7 @@
       <property
          name="fromOutcome">goToDashboard</property>
       <property
-         name="sdm:polyPoints">R50,311.5,259.30078,578.8782,229.80078,L46</property>
+         name="sdm:polyPoints">R42,311.5,252.30078,578.9037,229.80078,L46</property>
    </ControlFlowCase>
    <View
       id="View8">
@@ -68,28 +68,68 @@
          name="sdm:polyPoints">T50,407.07812,377.30078,580.31055,236.80078,L54</property>
    </ControlFlowCase>
    <View
-      id="View9">
+      id="View11">
       <property
-         name="activityId">testpage</property>
+         name="activityId">JobPortal</property>
       <property
-         name="x">632.5</property>
+         name="x">643.5</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>testpage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>JobPortal&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">422.23438</property>
+         name="y">437.23438</property>
       <property
-         name="page">/testpage.jsf</property>
+         name="page">/JobPortal.jsf</property>
       <property
          name="exceptionHandler">false</property>
    </View>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase10"
+      id="ControlFlowCase12"
+      from="View11"
+      to="View3">
+      <property
+         name="fromOutcome">goToDashboard</property>
+      <property
+         name="sdm:polyPoints">T50,643.5,383.16797,621.31055,287.30078,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="View11"
+      to="View7">
+      <property
+         name="fromOutcome">goToLogin</property>
+      <property
+         name="sdm:polyPoints">L50,602.5,437.16797,311.5,262.80078,R54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="View7"
+      to="View8">
+      <property
+         name="fromOutcome">goToSignUp</property>
+      <property
+         name="sdm:polyPoints">B50,270.5,313.30078,403.57812,377.30078,T44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase15"
       from="View3"
-      to="View9">
+      to="View11">
       <property
-         name="fromOutcome">goToTest</property>
+         name="fromOutcome">goToPortal</property>
       <property
-         name="sdm:polyPoints">B50,621.31055,287.30078,632.5,368.16797,T50</property>
+         name="sdm:polyPoints">B56,624.81055,287.30078,647.0,382.36514,T56</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase16"
+      from="View7"
+      to="View11">
+      <property
+         name="fromOutcome">goToPortal</property>
+      <property
+         name="sdm:polyPoints">R58,311.5,266.30078,600.5578,440.66797,L54</property>
    </ControlFlowCase>
 </SDM>
