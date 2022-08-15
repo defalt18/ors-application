@@ -114,9 +114,15 @@
                                             </af:outputText>
                                         </af:column>
                                         <af:column id="c1">
-                                            <af:button text="Apply" id="b1"/>
+                                            <af:button text="Apply" id="_101"
+                                                       action="#{backingBeanScope.TestPageBean.onClickApply}"
+                                                       actionListener="#{backingBeanScope.TestPageBean.onApplyListener}"/>
                                         </af:column>
                                     </af:table>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                                              launcherVar="#{backingBeanScope.TestPageBean.questionnaireTF}">
+                                        <af:showPopupBehavior popupId="p1"/>
+                                    </af:popup>
                                 </af:panelGroupLayout>
                             </f:facet>
                         </af:panelSplitter>
@@ -125,4 +131,5 @@
             </af:panelGridLayout>
         </af:form>
     </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:TestPageBean-->
 </f:view>

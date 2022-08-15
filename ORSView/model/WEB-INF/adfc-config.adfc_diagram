@@ -3,68 +3,154 @@
    <OverallProperties
       id="OverallProperties1"/>
    <View
-      id="View3">
-      <property
-         name="activityId">DashboardPage</property>
-      <property
-         name="x">621.31055</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>DashboardPage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="y">233.36719</property>
-      <property
-         name="page">/DashboardPage.jsf</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
-   <View
-      id="View7">
-      <property
-         name="activityId">LoginPage</property>
-      <property
-         name="x">270.5</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>LoginPage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="y">259.3672</property>
-      <property
-         name="page">/LoginPage.jsf</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase8"
-      from="View7"
-      to="View3">
-      <property
-         name="fromOutcome">goToDashboard</property>
-      <property
-         name="sdm:polyPoints">R50,311.5,259.30078,580.31055,233.30078,L50</property>
-   </ControlFlowCase>
-   <View
-      id="View8">
+      id="View17">
       <property
          name="activityId">SignUpPage</property>
       <property
-         name="x">407.07812</property>
+         name="x">59.078125</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SignUpPage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">431.3672</property>
+         name="y">72.36719</property>
       <property
          name="page">/SignUpPage.jsf</property>
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View18">
+      <property
+         name="activityId">LoginPage</property>
+      <property
+         name="x">55.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>LoginPage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">174.36719</property>
+      <property
+         name="page">/LoginPage.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View19">
+      <property
+         name="activityId">DashboardEmp</property>
+      <property
+         name="x">528.22656</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>DashboardEmp&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">27.101562</property>
+      <property
+         name="page">/DashboardEmp.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View21">
+      <property
+         name="activityId">DashboardCdate</property>
+      <property
+         name="x">516.4248</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>DashboardCdate&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">315.10156</property>
+      <property
+         name="page">/DashboardCdate.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase9"
-      from="View8"
-      to="View3">
+      id="ControlFlowCase22"
+      from="View18"
+      to="View17">
       <property
-         name="fromOutcome">goToDashboard</property>
+         name="tosrcid">__5</property>
       <property
-         name="sdm:polyPoints">T50,407.07812,377.30078,580.31055,236.80078,L54</property>
+         name="fromOutcome">goToSignUp</property>
+      <property
+         name="fromsrcid">__8</property>
+      <property
+         name="sdm:polyPoints">R38,96.5,163.80078,100.078125,75.80078,R54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase23"
+      from="View18"
+      to="View21">
+      <property
+         name="tosrcid">__2</property>
+      <property
+         name="fromOutcome">goToCandidateDashboard</property>
+      <property
+         name="fromsrcid">__8</property>
+      <property
+         name="sdm:polyPoints">R62,96.5,184.80078,473.78128,318.53516,L54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase26"
+      from="View18"
+      to="View19">
+      <property
+         name="fromOutcome">goToEmployeeDashboard</property>
+      <property
+         name="sdm:polyPoints">R50,106.731186,174.30078,487.22656,27.035156,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View27">
+      <property
+         name="activityId">DashboardHR</property>
+      <property
+         name="x">649.7998</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>DashboardHR&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">204.36719</property>
+      <property
+         name="page">/DashboardHR.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase30"
+      from="View18"
+      to="View27">
+      <property
+         name="tosrcid">__13</property>
+      <property
+         name="fromOutcome">goToHRDashboard</property>
+      <property
+         name="fromsrcid">__8</property>
+      <property
+         name="sdm:polyPoints">R58,97.16321,181.30078,608.7998,204.30078,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase33"
+      from="View17"
+      to="View21">
+      <property
+         name="tosrcid">__17</property>
+      <property
+         name="fromOutcome">goToCandidateDashboard</property>
+      <property
+         name="fromsrcid">__16</property>
+      <property
+         name="sdm:polyPoints">R46,104.75644,68.80078,475.4248,311.53516,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase34"
+      from="View17"
+      to="View18">
+      <property
+         name="fromOutcome">goToLogin</property>
+      <property
+         name="sdm:polyPoints">R58,100.078125,79.30078,96.5,160.30078,R34</property>
    </ControlFlowCase>
 </SDM>

@@ -1,0 +1,702 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="DashboardHR.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:outputText value="Hello " id="ot14" inlineStyle="font-size:xx-large;"/>
+                        <af:outputText value="#{pageFlowScope.username}" id="ot15" inlineStyle="font-size:xx-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:panelTabbed position="above" id="pt1" shortDesc="Jobs">
+                            <af:showDetailItem id="tab1" text="Jobs">
+                                <af:panelBox text="Jobs" id="pb1">
+                                    <f:facet name="toolbar"/>
+                                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                               disabled="#{!bindings.Delete.enabled}" id="b1"/>
+                                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Create"
+                                               disabled="#{!bindings.CreateInsert.enabled}" id="b2"/>
+                                    <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                                               disabled="#{!bindings.Commit.enabled}" id="b3"/>
+                                    <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b4">
+                                        <af:resetActionListener/>
+                                    </af:button>
+                                    <af:table value="#{bindings.JobsVO1.collectionModel}" var="row"
+                                              rows="#{bindings.JobsVO1.rangeSize}"
+                                              emptyText="#{bindings.JobsVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.JobsVO1.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.JobsVO1.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.JobsVO1.rangeSize}" id="t1"
+                                              partialTriggers="::b1 ::b2">
+                                        <?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?>
+                                        <af:column sortProperty="#{bindings.JobsVO1.hints.Jobid.name}" sortable="true"
+                                                   headerText="#{bindings.JobsVO1.hints.Jobid.label}" id="c1">
+                                            <af:inputText value="#{row.bindings.Jobid.inputValue}"
+                                                          label="#{bindings.JobsVO1.hints.Jobid.label}"
+                                                          required="#{bindings.JobsVO1.hints.Jobid.mandatory}"
+                                                          columns="#{bindings.JobsVO1.hints.Jobid.displayWidth}"
+                                                          maximumLength="#{bindings.JobsVO1.hints.Jobid.precision}"
+                                                          shortDesc="#{bindings.JobsVO1.hints.Jobid.tooltip}" id="it1">
+                                                <f:validator binding="#{row.bindings.Jobid.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.JobsVO1.hints.Jobid.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO1.hints.Jobname.name}" sortable="true"
+                                                   headerText="#{bindings.JobsVO1.hints.Jobname.label}" id="c2">
+                                            <af:inputText value="#{row.bindings.Jobname.inputValue}"
+                                                          label="#{bindings.JobsVO1.hints.Jobname.label}"
+                                                          required="#{bindings.JobsVO1.hints.Jobname.mandatory}"
+                                                          columns="#{bindings.JobsVO1.hints.Jobname.displayWidth}"
+                                                          maximumLength="#{bindings.JobsVO1.hints.Jobname.precision}"
+                                                          shortDesc="#{bindings.JobsVO1.hints.Jobname.tooltip}"
+                                                          id="it2">
+                                                <f:validator binding="#{row.bindings.Jobname.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO1.hints.Experiencelevel.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.JobsVO1.hints.Experiencelevel.label}" id="c3">
+                                            <af:inputText value="#{row.bindings.Experiencelevel.inputValue}"
+                                                          label="#{bindings.JobsVO1.hints.Experiencelevel.label}"
+                                                          required="#{bindings.JobsVO1.hints.Experiencelevel.mandatory}"
+                                                          columns="#{bindings.JobsVO1.hints.Experiencelevel.displayWidth}"
+                                                          maximumLength="#{bindings.JobsVO1.hints.Experiencelevel.precision}"
+                                                          shortDesc="#{bindings.JobsVO1.hints.Experiencelevel.tooltip}"
+                                                          id="it3">
+                                                <f:validator binding="#{row.bindings.Experiencelevel.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO1.hints.Noofvacancies.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.JobsVO1.hints.Noofvacancies.label}" id="c4">
+                                            <af:inputText value="#{row.bindings.Noofvacancies.inputValue}"
+                                                          label="#{bindings.JobsVO1.hints.Noofvacancies.label}"
+                                                          required="#{bindings.JobsVO1.hints.Noofvacancies.mandatory}"
+                                                          columns="#{bindings.JobsVO1.hints.Noofvacancies.displayWidth}"
+                                                          maximumLength="#{bindings.JobsVO1.hints.Noofvacancies.precision}"
+                                                          shortDesc="#{bindings.JobsVO1.hints.Noofvacancies.tooltip}"
+                                                          id="it4">
+                                                <f:validator binding="#{row.bindings.Noofvacancies.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.JobsVO1.hints.Noofvacancies.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO1.hints.Skillset.name}"
+                                                   sortable="true" headerText="#{bindings.JobsVO1.hints.Skillset.label}"
+                                                   id="c5">
+                                            <af:inputText value="#{row.bindings.Skillset.inputValue}"
+                                                          label="#{bindings.JobsVO1.hints.Skillset.label}"
+                                                          required="#{bindings.JobsVO1.hints.Skillset.mandatory}"
+                                                          columns="#{bindings.JobsVO1.hints.Skillset.displayWidth}"
+                                                          maximumLength="#{bindings.JobsVO1.hints.Skillset.precision}"
+                                                          shortDesc="#{bindings.JobsVO1.hints.Skillset.tooltip}"
+                                                          id="it5">
+                                                <f:validator binding="#{row.bindings.Skillset.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO1.hints.Jobpostedon.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.JobsVO1.hints.Jobpostedon.label}" id="c6">
+                                            <af:inputDate value="#{row.bindings.Jobpostedon.inputValue}"
+                                                          label="#{bindings.JobsVO1.hints.Jobpostedon.label}"
+                                                          required="#{bindings.JobsVO1.hints.Jobpostedon.mandatory}"
+                                                          columns="#{bindings.JobsVO1.hints.Jobpostedon.displayWidth}"
+                                                          shortDesc="#{bindings.JobsVO1.hints.Jobpostedon.tooltip}"
+                                                          id="id1">
+                                                <f:validator binding="#{row.bindings.Jobpostedon.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.JobsVO1.hints.Jobpostedon.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO1.hints.Deadline.name}"
+                                                   sortable="true" headerText="#{bindings.JobsVO1.hints.Deadline.label}"
+                                                   id="c7">
+                                            <af:inputDate value="#{row.bindings.Deadline.inputValue}"
+                                                          label="#{bindings.JobsVO1.hints.Deadline.label}"
+                                                          required="#{bindings.JobsVO1.hints.Deadline.mandatory}"
+                                                          columns="#{bindings.JobsVO1.hints.Deadline.displayWidth}"
+                                                          shortDesc="#{bindings.JobsVO1.hints.Deadline.tooltip}"
+                                                          id="id2">
+                                                <f:validator binding="#{row.bindings.Deadline.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.JobsVO1.hints.Deadline.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO1.hints.Noofcandidatesapplied.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.JobsVO1.hints.Noofcandidatesapplied.label}"
+                                                   id="c8">
+                                            <af:inputText value="#{row.bindings.Noofcandidatesapplied.inputValue}"
+                                                          label="#{bindings.JobsVO1.hints.Noofcandidatesapplied.label}"
+                                                          required="#{bindings.JobsVO1.hints.Noofcandidatesapplied.mandatory}"
+                                                          columns="#{bindings.JobsVO1.hints.Noofcandidatesapplied.displayWidth}"
+                                                          maximumLength="#{bindings.JobsVO1.hints.Noofcandidatesapplied.precision}"
+                                                          shortDesc="#{bindings.JobsVO1.hints.Noofcandidatesapplied.tooltip}"
+                                                          id="it6">
+                                                <f:validator binding="#{row.bindings.Noofcandidatesapplied.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.JobsVO1.hints.Noofcandidatesapplied.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.JobsVO1.hints.Jobdesc.name}" sortable="true"
+                                                   headerText="#{bindings.JobsVO1.hints.Jobdesc.label}" id="c9">
+                                            <af:inputText value="#{row.bindings.Jobdesc.inputValue}"
+                                                          label="#{bindings.JobsVO1.hints.Jobdesc.label}"
+                                                          required="#{bindings.JobsVO1.hints.Jobdesc.mandatory}"
+                                                          columns="#{bindings.JobsVO1.hints.Jobdesc.displayWidth}"
+                                                          maximumLength="#{bindings.JobsVO1.hints.Jobdesc.precision}"
+                                                          shortDesc="#{bindings.JobsVO1.hints.Jobdesc.tooltip}"
+                                                          id="it7">
+                                                <f:validator binding="#{row.bindings.Jobdesc.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelBox>
+                            </af:showDetailItem>
+                            <af:showDetailItem id="tab2" text="Search Jobs">
+                                <af:panelGroupLayout id="pgl2">
+                                    <af:panelGroupLayout layout="vertical" id="pgl7">
+                                        <af:panelHeader text="JobEO" id="ph1">
+                                            <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                                           value="#{bindings.ImplicitViewCriteriaQuery2.quickQueryDescriptor}"
+                                                           model="#{bindings.ImplicitViewCriteriaQuery2.queryModel}"
+                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery2.processQuery}">
+                                                <f:facet name="end">
+                                                    <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                                                </f:facet>
+                                            </af:quickQuery>
+                                        </af:panelHeader>
+                                        <af:table value="#{bindings.JobsVO2.collectionModel}" var="row"
+                                                  rows="#{bindings.JobsVO2.rangeSize}"
+                                                  emptyText="#{bindings.JobsVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.JobsVO2.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.JobsVO2.collectionModel.makeCurrent}"
+                                                  rowSelection="single" fetchSize="#{bindings.JobsVO2.rangeSize}"
+                                                  partialTriggers="::qryId1 ::b1 ::b2" id="t4">
+                                            <af:column headerText="#{bindings.JobsVO2.hints.Jobid.label}" id="c23">
+                                                <af:outputText value="#{row.Jobid}"
+                                                               shortDesc="#{bindings.JobsVO2.hints.Jobid.tooltip}"
+                                                               id="ot1">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.JobsVO2.hints.Jobid.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.JobsVO2.hints.Jobname.label}" id="c24">
+                                                <af:outputText value="#{row.Jobname}"
+                                                               shortDesc="#{bindings.JobsVO2.hints.Jobname.tooltip}"
+                                                               id="ot2"/>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.JobsVO2.hints.Experiencelevel.label}"
+                                                       id="c25">
+                                                <af:outputText value="#{row.Experiencelevel}"
+                                                               shortDesc="#{bindings.JobsVO2.hints.Experiencelevel.tooltip}"
+                                                               id="ot3"/>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.JobsVO2.hints.Noofvacancies.label}"
+                                                       id="c26">
+                                                <af:outputText value="#{row.Noofvacancies}"
+                                                               shortDesc="#{bindings.JobsVO2.hints.Noofvacancies.tooltip}"
+                                                               id="ot4">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.JobsVO2.hints.Noofvacancies.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.JobsVO2.hints.Skillset.label}" id="c27">
+                                                <af:outputText value="#{row.Skillset}"
+                                                               shortDesc="#{bindings.JobsVO2.hints.Skillset.tooltip}"
+                                                               id="ot5"/>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.JobsVO2.hints.Jobpostedon.label}"
+                                                       id="c28">
+                                                <af:outputText value="#{row.Jobpostedon}"
+                                                               shortDesc="#{bindings.JobsVO2.hints.Jobpostedon.tooltip}"
+                                                               id="ot6">
+                                                    <af:convertDateTime pattern="#{bindings.JobsVO2.hints.Jobpostedon.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.JobsVO2.hints.Deadline.label}" id="c29">
+                                                <af:outputText value="#{row.Deadline}"
+                                                               shortDesc="#{bindings.JobsVO2.hints.Deadline.tooltip}"
+                                                               id="ot7">
+                                                    <af:convertDateTime pattern="#{bindings.JobsVO2.hints.Deadline.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.JobsVO2.hints.Noofcandidatesapplied.label}"
+                                                       id="c30">
+                                                <af:outputText value="#{row.Noofcandidatesapplied}"
+                                                               shortDesc="#{bindings.JobsVO2.hints.Noofcandidatesapplied.tooltip}"
+                                                               id="ot8">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.JobsVO2.hints.Noofcandidatesapplied.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.JobsVO2.hints.Jobdesc.label}" id="c31">
+                                                <af:outputText value="#{row.Jobdesc}"
+                                                               shortDesc="#{bindings.JobsVO2.hints.Jobdesc.tooltip}"
+                                                               id="ot9"/>
+                                            </af:column>
+                                        </af:table>
+                                    </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                            </af:showDetailItem>
+                        </af:panelTabbed>
+                        <af:panelTabbed position="above" id="pt2" shortDesc="Candidates">
+                            <af:showDetailItem id="tab3" text="Candidates">
+                                <af:panelBox text="Candidates" id="pb3">
+                                    <f:facet name="toolbar"/>
+                                    <af:table value="#{bindings.CandidatesVO.collectionModel}" var="row"
+                                              rows="#{bindings.CandidatesVO.rangeSize}"
+                                              emptyText="#{bindings.CandidatesVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.CandidatesVO.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.CandidatesVO.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.CandidatesVO.rangeSize}"
+                                              id="t3">
+                                        <af:column sortProperty="#{bindings.CandidatesVO.hints.Candidateid.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.CandidatesVO.hints.Candidateid.label}"
+                                                   id="c18">
+                                            <af:inputText value="#{row.bindings.Candidateid.inputValue}"
+                                                          label="#{bindings.CandidatesVO.hints.Candidateid.label}"
+                                                          required="#{bindings.CandidatesVO.hints.Candidateid.mandatory}"
+                                                          columns="#{bindings.CandidatesVO.hints.Candidateid.displayWidth}"
+                                                          maximumLength="#{bindings.CandidatesVO.hints.Candidateid.precision}"
+                                                          shortDesc="#{bindings.CandidatesVO.hints.Candidateid.tooltip}"
+                                                          id="it15">
+                                                <f:validator binding="#{row.bindings.Candidateid.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.CandidatesVO.hints.Contact.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.CandidatesVO.hints.Contact.label}" id="c19">
+                                            <af:inputText value="#{row.bindings.Contact.inputValue}"
+                                                          label="#{bindings.CandidatesVO.hints.Contact.label}"
+                                                          required="#{bindings.CandidatesVO.hints.Contact.mandatory}"
+                                                          columns="#{bindings.CandidatesVO.hints.Contact.displayWidth}"
+                                                          maximumLength="#{bindings.CandidatesVO.hints.Contact.precision}"
+                                                          shortDesc="#{bindings.CandidatesVO.hints.Contact.tooltip}"
+                                                          id="it16">
+                                                <f:validator binding="#{row.bindings.Contact.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.CandidatesVO.hints.Firstname.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.CandidatesVO.hints.Firstname.label}" id="c20">
+                                            <af:inputText value="#{row.bindings.Firstname.inputValue}"
+                                                          label="#{bindings.CandidatesVO.hints.Firstname.label}"
+                                                          required="#{bindings.CandidatesVO.hints.Firstname.mandatory}"
+                                                          columns="#{bindings.CandidatesVO.hints.Firstname.displayWidth}"
+                                                          maximumLength="#{bindings.CandidatesVO.hints.Firstname.precision}"
+                                                          shortDesc="#{bindings.CandidatesVO.hints.Firstname.tooltip}"
+                                                          id="it17">
+                                                <f:validator binding="#{row.bindings.Firstname.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.CandidatesVO.hints.Lastname.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.CandidatesVO.hints.Lastname.label}" id="c21">
+                                            <af:inputText value="#{row.bindings.Lastname.inputValue}"
+                                                          label="#{bindings.CandidatesVO.hints.Lastname.label}"
+                                                          required="#{bindings.CandidatesVO.hints.Lastname.mandatory}"
+                                                          columns="#{bindings.CandidatesVO.hints.Lastname.displayWidth}"
+                                                          maximumLength="#{bindings.CandidatesVO.hints.Lastname.precision}"
+                                                          shortDesc="#{bindings.CandidatesVO.hints.Lastname.tooltip}"
+                                                          id="it18">
+                                                <f:validator binding="#{row.bindings.Lastname.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.CandidatesVO.hints.Skillset.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.CandidatesVO.hints.Skillset.label}" id="c22">
+                                            <af:inputText value="#{row.bindings.Skillset.inputValue}"
+                                                          label="#{bindings.CandidatesVO.hints.Skillset.label}"
+                                                          required="#{bindings.CandidatesVO.hints.Skillset.mandatory}"
+                                                          columns="#{bindings.CandidatesVO.hints.Skillset.displayWidth}"
+                                                          maximumLength="#{bindings.CandidatesVO.hints.Skillset.precision}"
+                                                          shortDesc="#{bindings.CandidatesVO.hints.Skillset.tooltip}"
+                                                          id="it19">
+                                                <f:validator binding="#{row.bindings.Skillset.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.CandidatesVO.hints.Username.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.CandidatesVO.hints.Username.label}" id="c35">
+                                            <af:inputText value="#{row.bindings.Username.inputValue}"
+                                                          label="#{bindings.CandidatesVO.hints.Username.label}"
+                                                          required="#{bindings.CandidatesVO.hints.Username.mandatory}"
+                                                          columns="#{bindings.CandidatesVO.hints.Username.displayWidth}"
+                                                          maximumLength="#{bindings.CandidatesVO.hints.Username.precision}"
+                                                          shortDesc="#{bindings.CandidatesVO.hints.Username.tooltip}"
+                                                          id="it22">
+                                                <f:validator binding="#{row.bindings.Username.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelBox>
+                            </af:showDetailItem>
+                            <af:showDetailItem id="tab4" text="Search Candidates">
+                                <af:panelGroupLayout id="pgl3">
+                                    <af:panelGroupLayout layout="vertical" id="pgl4">
+                                        <af:panelHeader text="CandidateEO" id="ph2">
+                                            <af:quickQuery label="Search" searchDesc="Search" id="qryId2"
+                                                           value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                           model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                <f:facet name="end">
+                                                    <af:commandLink text="Advanced" rendered="false" id="cl2"/>
+                                                </f:facet>
+                                            </af:quickQuery>
+                                        </af:panelHeader>
+                                        <af:table value="#{bindings.CandidatesVO1.collectionModel}" var="row"
+                                                  rows="#{bindings.CandidatesVO1.rangeSize}"
+                                                  emptyText="#{bindings.CandidatesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.CandidatesVO1.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.CandidatesVO1.collectionModel.makeCurrent}"
+                                                  rowSelection="single" fetchSize="#{bindings.CandidatesVO1.rangeSize}"
+                                                  partialTriggers="::qryId2" id="t5">
+                                            <af:column sortProperty="#{bindings.CandidatesVO1.hints.Candidateid.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.CandidatesVO1.hints.Candidateid.label}"
+                                                       id="c36">
+                                                <af:outputText value="#{row.Candidateid}"
+                                                               shortDesc="#{bindings.CandidatesVO1.hints.Candidateid.tooltip}"
+                                                               id="ot10"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO1.hints.Contact.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.CandidatesVO1.hints.Contact.label}"
+                                                       id="c37">
+                                                <af:outputText value="#{row.Contact}"
+                                                               shortDesc="#{bindings.CandidatesVO1.hints.Contact.tooltip}"
+                                                               id="ot11"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO1.hints.Firstname.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.CandidatesVO1.hints.Firstname.label}"
+                                                       id="c38">
+                                                <af:outputText value="#{row.Firstname}"
+                                                               shortDesc="#{bindings.CandidatesVO1.hints.Firstname.tooltip}"
+                                                               id="ot12"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO1.hints.Lastname.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.CandidatesVO1.hints.Lastname.label}"
+                                                       id="c39">
+                                                <af:outputText value="#{row.Lastname}"
+                                                               shortDesc="#{bindings.CandidatesVO1.hints.Lastname.tooltip}"
+                                                               id="ot13"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO1.hints.Skillset.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.CandidatesVO1.hints.Skillset.label}"
+                                                       id="c40">
+                                                <af:outputText value="#{row.Skillset}"
+                                                               shortDesc="#{bindings.CandidatesVO1.hints.Skillset.tooltip}"
+                                                               id="ot16"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO1.hints.Username.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.CandidatesVO1.hints.Username.label}"
+                                                       id="c41">
+                                                <af:outputText value="#{row.Username}"
+                                                               shortDesc="#{bindings.CandidatesVO1.hints.Username.tooltip}"
+                                                               id="ot17"/>
+                                            </af:column>
+                                        </af:table>
+                                    </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                                
+                            </af:showDetailItem>
+                        </af:panelTabbed>
+                        <af:panelTabbed position="above" id="pt3">
+                            <af:showDetailItem id="tab5" text="Interviews">
+                                <af:panelBox text="Interviews" id="pb2">
+                                    <af:table value="#{bindings.InterviewProcessVO.collectionModel}" var="row"
+                                              rows="#{bindings.InterviewProcessVO.rangeSize}"
+                                              emptyText="#{bindings.InterviewProcessVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.InterviewProcessVO.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.InterviewProcessVO.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.InterviewProcessVO.rangeSize}"
+                                              id="t2">
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Candidateid.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Candidateid.label}"
+                                                   id="c10">
+                                            <af:inputText value="#{row.bindings.Candidateid.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Candidateid.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Candidateid.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Candidateid.displayWidth}"
+                                                          maximumLength="#{bindings.InterviewProcessVO.hints.Candidateid.precision}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Candidateid.tooltip}"
+                                                          id="it8">
+                                                <f:validator binding="#{row.bindings.Candidateid.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Candidatename.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Candidatename.label}"
+                                                   id="c11">
+                                            <af:inputText value="#{row.bindings.Candidatename.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Candidatename.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Candidatename.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Candidatename.displayWidth}"
+                                                          maximumLength="#{bindings.InterviewProcessVO.hints.Candidatename.precision}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Candidatename.tooltip}"
+                                                          id="it9">
+                                                <f:validator binding="#{row.bindings.Candidatename.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Jobid.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Jobid.label}"
+                                                   id="c12">
+                                            <af:inputText value="#{row.bindings.Jobid.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Jobid.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Jobid.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Jobid.displayWidth}"
+                                                          maximumLength="#{bindings.InterviewProcessVO.hints.Jobid.precision}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Jobid.tooltip}"
+                                                          id="it10">
+                                                <f:validator binding="#{row.bindings.Jobid.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.InterviewProcessVO.hints.Jobid.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Jobname.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Jobname.label}"
+                                                   id="c13">
+                                            <af:inputText value="#{row.bindings.Jobname.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Jobname.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Jobname.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Jobname.displayWidth}"
+                                                          maximumLength="#{bindings.InterviewProcessVO.hints.Jobname.precision}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Jobname.tooltip}"
+                                                          id="it11">
+                                                <f:validator binding="#{row.bindings.Jobname.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Employeeid.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Employeeid.label}"
+                                                   id="c14">
+                                            <af:inputText value="#{row.bindings.Employeeid.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Employeeid.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Employeeid.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Employeeid.displayWidth}"
+                                                          maximumLength="#{bindings.InterviewProcessVO.hints.Employeeid.precision}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Employeeid.tooltip}"
+                                                          id="it12">
+                                                <f:validator binding="#{row.bindings.Employeeid.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.InterviewProcessVO.hints.Employeeid.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Scheduledon.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Scheduledon.label}"
+                                                   id="c15">
+                                            <af:inputDate value="#{row.bindings.Scheduledon.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Scheduledon.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Scheduledon.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Scheduledon.displayWidth}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Scheduledon.tooltip}"
+                                                          id="id3">
+                                                <f:validator binding="#{row.bindings.Scheduledon.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.InterviewProcessVO.hints.Scheduledon.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Round.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Round.label}"
+                                                   id="c16">
+                                            <af:inputText value="#{row.bindings.Round.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Round.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Round.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Round.displayWidth}"
+                                                          maximumLength="#{bindings.InterviewProcessVO.hints.Round.precision}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Round.tooltip}"
+                                                          id="it13">
+                                                <f:validator binding="#{row.bindings.Round.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.InterviewProcessVO.hints.Round.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Status.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Status.label}"
+                                                   id="c17">
+                                            <af:inputText value="#{row.bindings.Status.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Status.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Status.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Status.displayWidth}"
+                                                          maximumLength="#{bindings.InterviewProcessVO.hints.Status.precision}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Status.tooltip}"
+                                                          id="it14">
+                                                <f:validator binding="#{row.bindings.Status.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Unnamed1.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Unnamed1.label}"
+                                                   id="c32">
+                                            <af:inputText value="#{row.bindings.Unnamed1.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Unnamed1.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Unnamed1.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Unnamed1.displayWidth}"
+                                                          maximumLength="#{bindings.InterviewProcessVO.hints.Unnamed1.precision}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Unnamed1.tooltip}"
+                                                          id="it20">
+                                                <f:validator binding="#{row.bindings.Unnamed1.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Unnamed2.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Unnamed2.label}"
+                                                   id="c33">
+                                            <af:inputText value="#{row.bindings.Unnamed2.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Unnamed2.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Unnamed2.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Unnamed2.displayWidth}"
+                                                          maximumLength="#{bindings.InterviewProcessVO.hints.Unnamed2.precision}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Unnamed2.tooltip}"
+                                                          id="it21">
+                                                <f:validator binding="#{row.bindings.Unnamed2.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Unnamed3.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.InterviewProcessVO.hints.Unnamed3.label}"
+                                                   id="c34">
+                                            <af:inputDate value="#{row.bindings.Unnamed3.inputValue}"
+                                                          label="#{bindings.InterviewProcessVO.hints.Unnamed3.label}"
+                                                          required="#{bindings.InterviewProcessVO.hints.Unnamed3.mandatory}"
+                                                          columns="#{bindings.InterviewProcessVO.hints.Unnamed3.displayWidth}"
+                                                          shortDesc="#{bindings.InterviewProcessVO.hints.Unnamed3.tooltip}"
+                                                          id="id4">
+                                                <f:validator binding="#{row.bindings.Unnamed3.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.InterviewProcessVO.hints.Unnamed3.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelBox>
+                            </af:showDetailItem>
+                            <af:showDetailItem id="tab6" text="Search Interviews">
+                                <af:panelGroupLayout id="pgl5">
+                                    <af:panelGroupLayout layout="vertical" id="pgl6">
+                                        <af:panelHeader text="InterviewProcessEO" id="ph3">
+                                            <af:quickQuery label="Search" searchDesc="Search" id="qryId3"
+                                                           value="#{bindings.ImplicitViewCriteriaQuery1.quickQueryDescriptor}"
+                                                           model="#{bindings.ImplicitViewCriteriaQuery1.queryModel}"
+                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery1.processQuery}">
+                                                <f:facet name="end">
+                                                    <af:commandLink text="Advanced" rendered="false" id="cl3"/>
+                                                </f:facet>
+                                            </af:quickQuery>
+                                        </af:panelHeader>
+                                        <af:table value="#{bindings.InterviewProcessVO1.collectionModel}" var="row"
+                                                  rows="#{bindings.InterviewProcessVO1.rangeSize}"
+                                                  emptyText="#{bindings.InterviewProcessVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.InterviewProcessVO1.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.InterviewProcessVO1.collectionModel.makeCurrent}"
+                                                  rowSelection="single"
+                                                  fetchSize="#{bindings.InterviewProcessVO1.rangeSize}"
+                                                  partialTriggers="::qryId3" id="t6">
+                                            <af:column sortProperty="#{bindings.InterviewProcessVO1.hints.Candidateid.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.InterviewProcessVO1.hints.Candidateid.label}"
+                                                       id="c42">
+                                                <af:outputText value="#{row.Candidateid}"
+                                                               shortDesc="#{bindings.InterviewProcessVO1.hints.Candidateid.tooltip}"
+                                                               id="ot18"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.InterviewProcessVO1.hints.Candidatename.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.InterviewProcessVO1.hints.Candidatename.label}"
+                                                       id="c43">
+                                                <af:outputText value="#{row.Candidatename}"
+                                                               shortDesc="#{bindings.InterviewProcessVO1.hints.Candidatename.tooltip}"
+                                                               id="ot19"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.InterviewProcessVO1.hints.Jobid.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.InterviewProcessVO1.hints.Jobid.label}"
+                                                       id="c44">
+                                                <af:outputText value="#{row.Jobid}"
+                                                               shortDesc="#{bindings.InterviewProcessVO1.hints.Jobid.tooltip}"
+                                                               id="ot20">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.InterviewProcessVO1.hints.Jobid.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.InterviewProcessVO1.hints.Jobname.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.InterviewProcessVO1.hints.Jobname.label}"
+                                                       id="c45">
+                                                <af:outputText value="#{row.Jobname}"
+                                                               shortDesc="#{bindings.InterviewProcessVO1.hints.Jobname.tooltip}"
+                                                               id="ot21"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.InterviewProcessVO1.hints.Employeeid.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.InterviewProcessVO1.hints.Employeeid.label}"
+                                                       id="c46">
+                                                <af:outputText value="#{row.Employeeid}"
+                                                               shortDesc="#{bindings.InterviewProcessVO1.hints.Employeeid.tooltip}"
+                                                               id="ot22">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.InterviewProcessVO1.hints.Employeeid.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.InterviewProcessVO1.hints.Scheduledon.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.InterviewProcessVO1.hints.Scheduledon.label}"
+                                                       id="c47">
+                                                <af:outputText value="#{row.Scheduledon}"
+                                                               shortDesc="#{bindings.InterviewProcessVO1.hints.Scheduledon.tooltip}"
+                                                               id="ot23">
+                                                    <af:convertDateTime pattern="#{bindings.InterviewProcessVO1.hints.Scheduledon.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.InterviewProcessVO1.hints.Round.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.InterviewProcessVO1.hints.Round.label}"
+                                                       id="c48">
+                                                <af:outputText value="#{row.Round}"
+                                                               shortDesc="#{bindings.InterviewProcessVO1.hints.Round.tooltip}"
+                                                               id="ot24">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.InterviewProcessVO1.hints.Round.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.InterviewProcessVO1.hints.Status.name}"
+                                                       sortable="true"
+                                                       headerText="#{bindings.InterviewProcessVO1.hints.Status.label}"
+                                                       id="c49">
+                                                <af:outputText value="#{row.Status}"
+                                                               shortDesc="#{bindings.InterviewProcessVO1.hints.Status.tooltip}"
+                                                               id="ot25"/>
+                                            </af:column>
+                                        </af:table>
+                                    </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                            </af:showDetailItem>
+                        </af:panelTabbed>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

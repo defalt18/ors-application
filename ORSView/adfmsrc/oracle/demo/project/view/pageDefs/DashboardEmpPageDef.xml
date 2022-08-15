@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="DashboardEmpPageDef"
+                Package="oracle.demo.project.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InterviewProcessVO" RangeSize="25" DataControl="ORSAppModuleDataControl1"
+              id="InterviewProcessVOIterator"/>
+    <searchRegion Binds="InterviewProcessVOIterator" Criteria="FilterByEmpId"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InterviewProcessVOQuery"/>
+    <iterator Binds="EmployeesVO" RangeSize="10" DataControl="ORSAppModuleDataControl1" id="EmployeesVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InterviewProcessVOIterator" id="InterviewProcessVO">
+      <nodeDefinition DefName="oracle.demo.project.model.views.InterviewProcessVO" Name="InterviewProcessVO0">
+        <AttrNames>
+          <Item Value="Employeeid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Scheduledon"/>
+          <Item Value="Round"/>
+          <Item Value="Jobid"/>
+          <Item Value="Candidateid"/>
+          <Item Value="Candidatename"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <table IterBinding="EmployeesVOIterator" id="EmployeesVO">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </table>
+  </bindings>
+</pageDefinition>

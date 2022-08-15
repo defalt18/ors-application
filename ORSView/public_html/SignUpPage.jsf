@@ -1,33 +1,1 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-        xmlns:h="http://java.sun.com/jsf/html">
-    <af:document title="SignUpPage.jsf" id="d1">
-        <af:messages id="m1"/>
-        <af:form id="f1" inlineStyle="padding: 20px 20px;">
-            <h:outputLabel value="Applicant Registration" id="ol1"
-                           style="font-size:xx-large; font-weight:300; color:#2d70cd; margin: 20px 20px;"/>
-            <af:inputText label="First Name" id="it1" columns="30" value="#{backingBeanScope.SignUpBean.firstName}"/>
-            <af:inputText label="Last Name" id="it2" columns="30" value="#{backingBeanScope.SignUpBean.lastName}"/>
-            <af:selectManyChoice label="Select Skills" requiredMessageDetail="Select any skills you would like to add"
-                                 id="smc1" valueChangeListener="#{backingBeanScope.SignUpBean.onChangeSelect}">
-                <af:selectItem label="JAVA" value="JAVA" id="si1"/>
-                <af:selectItem label="JAVASCRIPT" value="JAVASCRIPT" id="si2"/>
-                <af:selectItem label="UI / UX" value="UI / UX" id="si3"/>
-                <af:selectItem label="NODE" value="NODE" id="si4"/>
-                <af:selectItem label="FRONTEND" value="FRONTEND" id="si5"/>
-                <af:selectItem label="DISTRIBUTED SYSTEMS" value="DISTRIBUTED_SYSTEMS" id="si6"/>
-            </af:selectManyChoice>
-            <af:inputText label="Contact Number" id="it8" placeholder="+91 123-456789"
-                                   columns="30" value="#{backingBeanScope.SignUpBean.phoneNumber}" maximumLength="10"/>
-            <af:inputText label="Username" id="it4" columns="30" value="#{backingBeanScope.SignUpBean.username}" />
-            <af:inputText label="Password" id="it7" columns="30" value='#{backingBeanScope.SignUpBean.password}'
-                          secret="true"/>
-            <af:button text="Register" id="b1" action='#{backingBeanScope.SignUpBean.onRegister}' >
-                <af:setPropertyListener from="#{backingBeanScope.SignUpBean.username}" to="#{pageFlowScope.username}"
-                                        type="action"/>
-            </af:button>
-        </af:form>
-    </af:document>
-    <!--oracle-jdev-comment:preferred-managed-bean-name:SignUpBean-->
-</f:view>
+<?xml version='1.0' encoding='UTF-8'?><!DOCTYPE html><f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"        xmlns:h="http://java.sun.com/jsf/html">    <af:document title="LoginPage.jsf" id="d1">        <af:panelGridLayout id="pgl1">            <af:gridRow marginTop="0px" height="100%" marginBottom="0px" id="gr1">                <af:gridCell marginStart="0px" width="60%" marginEnd="0px" id="gc1" valign="stretch" halign="stretch">                    <af:image source="/images/homepage.jpeg" id="i1" shortDesc="Login Image"                              inlineStyle="object-fit: cover;"/>                </af:gridCell>                <af:gridCell marginStart="5px" width="40%" marginEnd="0px" id="gc2" valign="stretch" halign="stretch">                    <af:form id="f1"                             inlineStyle="display: flex; align-items: center; flex-direction: column; justify-content: center; gap: 10px;">                        <h:outputLabel value="Applicant Registration" id="ol1"                                       style="font-size:xx-large; font-weight:300; color:#2d70cd; margin: 20px 20px;"/>                        <af:inputText label="Username" id="it1" columns="30"                                      value='#{backingBeanScope.SignUpBean.username}'/>                        <af:inputText label="Contact" id="it3" columns="30" placeholder="+91 121-324234"                                      value='#{backingBeanScope.SignUpBean.phoneNumber}'/>                        <af:inputText label="First Name" id="it4" columns="30"                                      value='#{backingBeanScope.SignUpBean.firstName}'/>                        <af:inputText label="Last Name" id="it5" columns="30"                                      value='#{backingBeanScope.SignUpBean.lastName}'/>                        <af:selectManyChoice label="Skills " id="smc1"                                             valueChangeListener="#{backingBeanScope.SignUpBean.onChangeSelect}">                            <af:selectItem label="JAVA" value="JAVA" id="si1"/>                            <af:selectItem label="JAVASCRIPT" value="JAVASCRIPT" id="si2"/>                            <af:selectItem label="FRONTEND" value="FRONTEND" id="si3"/>                            <af:selectItem label="NODE" value="NODE" id="si4"/>                            <af:selectItem label="DEVOPS" value="DEVOPS" id="si5"/>                            <af:selectItem label="UI / UX" value="UI / UX" id="si6"/>                            <af:selectItem label="C++" value="C++" id="si7"/>                            <af:selectItem label="PYTHON" value="PYTHON" id="si8"/>                            <af:selectItem label="DISTRIBUTED SYSTEMS" value="DISTRIBUTED_SYSTEMS" id="si9"/>                            <af:selectItem label="INTEGRATION TECHNOLOGY" value="INTEGRATIONS TECHNOLOGY" id="si10"/>                            <af:selectItem label="CYBER SECURITY" value="CYBER SECURITY" id="si11"/>                            <af:selectItem label="OPERATING SYSTEMS" value="OPERATING SYSTEMS" id="si12"/>                            <af:selectItem label="GRAPHIC DESIGNING" value="GRAPHIC DESIGNING" id="si13"/>                            <af:selectItem label="HIGH PERFORMANCE COMPUTING" value="HIGH PERFORMANCE COMPUTING"                                           id="si14"/>                            <af:selectItem label="SYSTEMS ARCHITECTECTURE" value="SYSTEMS ARCHITECTECTURE" id="si15"/>                        </af:selectManyChoice>                        <af:inputText label="Password" id="it2" columns="30" secret='true'                                      value='#{backingBeanScope.SignUpBean.password}'/>                        <af:button text="Register" id="b1" action='#{backingBeanScope.SignUpBean.onRegister}'                                   inlineStyle="width:20%; margin-top:20px; text-align:center; background-color:transparent; color:Black; border-radius:8px 8px 8px 8px / 8px 8px 8px 8px ; border-width:1px;"/>                        <af:link text="Have an account? Log in" id="l1" inlineStyle="margin-top: 10px;"                                 action="goToLogin"/>                    </af:form>                </af:gridCell>            </af:gridRow>        </af:panelGridLayout>    </af:document>    <!--oracle-jdev-comment:preferred-managed-bean-name:LoginPageBean--></f:view>

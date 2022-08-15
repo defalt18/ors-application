@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="DashboardCdate.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:outputText value="Hello, ${sessionScope.Username}" id="ot14" inlineStyle="font-size:xx-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:panelBox text="Applications" id="pb1">
+                            <f:facet name="toolbar"/>
+                            <af:table value="#{bindings.ApplicationsVO.collectionModel}" var="row"
+                                      rows="#{bindings.ApplicationsVO.rangeSize}"
+                                      emptyText="#{bindings.ApplicationsVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.ApplicationsVO.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.ApplicationsVO.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.ApplicationsVO.rangeSize}"
+                                      filterModel="#{bindings.ApplicationsVOQuery.queryDescriptor}" filterVisible="true"
+                                      queryListener="#{bindings.ApplicationsVOQuery.processQuery}" varStatus="vs"
+                                      id="t1">
+                                <af:column sortProperty="#{bindings.ApplicationsVO.hints.Candidateid.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.ApplicationsVO.hints.Candidateid.label}" id="c1">
+                                    <af:outputText value="#{row.Candidateid}"
+                                                   shortDesc="#{bindings.ApplicationsVO.hints.Candidateid.tooltip}"
+                                                   id="ot7"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ApplicationsVO.hints.Jobid.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.ApplicationsVO.hints.Jobid.label}"
+                                           id="c2">
+                                    <af:outputText value="#{row.Jobid}"
+                                                   shortDesc="#{bindings.ApplicationsVO.hints.Jobid.tooltip}" id="ot8">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ApplicationsVO.hints.Jobid.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ApplicationsVO.hints.Appliedon.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.ApplicationsVO.hints.Appliedon.label}" id="c3">
+                                    <f:facet name="filter">
+                                        <af:inputDate value="#{bindings.ApplicationsVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Appliedon.value}"
+                                                      id="id1">
+                                            <af:convertDateTime pattern="#{bindings.ApplicationsVO.hints.Appliedon.format}"/>
+                                        </af:inputDate>
+                                    </f:facet>
+                                    <af:outputText value="#{row.Appliedon}"
+                                                   shortDesc="#{bindings.ApplicationsVO.hints.Appliedon.tooltip}"
+                                                   id="ot9">
+                                        <af:convertDateTime pattern="#{bindings.ApplicationsVO.hints.Appliedon.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelBox>
+                        <af:panelBox text="Interviews" id="pb2">
+                            <f:facet name="toolbar"/>
+                            <af:table value="#{bindings.InterviewProcessVO.collectionModel}" var="row"
+                                      rows="#{bindings.InterviewProcessVO.rangeSize}"
+                                      emptyText="#{bindings.InterviewProcessVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.InterviewProcessVO.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.InterviewProcessVO.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.InterviewProcessVO.rangeSize}"
+                                      filterModel="#{bindings.InterviewProcessVOQuery.queryDescriptor}"
+                                      filterVisible="true"
+                                      queryListener="#{bindings.InterviewProcessVOQuery.processQuery}" varStatus="vs"
+                                      id="t2">
+                                <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Candidateid.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.InterviewProcessVO.hints.Candidateid.label}" id="c5">
+                                    <af:outputText value="#{row.Candidateid}"
+                                                   shortDesc="#{bindings.InterviewProcessVO.hints.Candidateid.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Candidatename.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.InterviewProcessVO.hints.Candidatename.label}"
+                                           id="c6">
+                                    <af:outputText value="#{row.Candidatename}"
+                                                   shortDesc="#{bindings.InterviewProcessVO.hints.Candidatename.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Jobid.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.InterviewProcessVO.hints.Jobid.label}" id="c7">
+                                    <af:outputText value="#{row.Jobid}"
+                                                   shortDesc="#{bindings.InterviewProcessVO.hints.Jobid.tooltip}"
+                                                   id="ot3">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.InterviewProcessVO.hints.Jobid.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Jobname.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.InterviewProcessVO.hints.Jobname.label}" id="c8">
+                                    <af:outputText value="#{row.Jobname}"
+                                                   shortDesc="#{bindings.InterviewProcessVO.hints.Jobname.tooltip}"
+                                                   id="ot4"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Scheduledon.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.InterviewProcessVO.hints.Scheduledon.label}" id="c9">
+                                    <f:facet name="filter">
+                                        <af:inputDate value="#{bindings.InterviewProcessVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Scheduledon.value}"
+                                                      id="id2">
+                                            <af:convertDateTime pattern="#{bindings.InterviewProcessVO.hints.Scheduledon.format}"/>
+                                        </af:inputDate>
+                                    </f:facet>
+                                    <af:outputText value="#{row.Scheduledon}"
+                                                   shortDesc="#{bindings.InterviewProcessVO.hints.Scheduledon.tooltip}"
+                                                   id="ot5">
+                                        <af:convertDateTime pattern="#{bindings.InterviewProcessVO.hints.Scheduledon.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.InterviewProcessVO.hints.Round.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.InterviewProcessVO.hints.Round.label}" id="c10">
+                                    <af:outputText value="#{row.Round}"
+                                                   shortDesc="#{bindings.InterviewProcessVO.hints.Round.tooltip}"
+                                                   id="ot6">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.InterviewProcessVO.hints.Round.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelBox>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

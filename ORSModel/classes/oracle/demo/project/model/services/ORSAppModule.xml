@@ -29,6 +29,15 @@
   <ViewUsage
     Name="JobsVO"
     ViewObjectName="oracle.demo.project.model.views.JobsVO"/>
+  <ViewUsage
+    Name="InterviewProcessVO"
+    ViewObjectName="oracle.demo.project.model.views.InterviewProcessVO"/>
+  <ViewUsage
+    Name="ApplicationsVO"
+    ViewObjectName="oracle.demo.project.model.views.ApplicationsVO"/>
+  <ViewUsage
+    Name="CandidatesHistoryVO"
+    ViewObjectName="oracle.demo.project.model.views.CandidatesHistoryVO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="oracle.demo.project.model.ORSModelBundle"/>

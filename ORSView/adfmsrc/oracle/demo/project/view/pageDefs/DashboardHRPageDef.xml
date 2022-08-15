@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="DashboardHRPageDef"
+                Package="oracle.demo.project.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="JobsVO" RangeSize="25" DataControl="ORSAppModuleDataControl1" id="JobsVOIterator"/>
+    <iterator Binds="InterviewProcessVO" RangeSize="25" DataControl="ORSAppModuleDataControl1"
+              id="InterviewProcessVOIterator"/>
+    <iterator Binds="CandidatesVO" RangeSize="25" DataControl="ORSAppModuleDataControl1" id="CandidatesVOIterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CandidatesVOIterator" id="ImplicitViewCriteriaQuery"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="InterviewProcessVOIterator" id="ImplicitViewCriteriaQuery1"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="JobsVOIterator" id="ImplicitViewCriteriaQuery2"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="JobsVOIterator" id="JobsVO">
+      <nodeDefinition DefName="oracle.demo.project.model.views.JobsVO" Name="JobsVO0">
+        <AttrNames>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Experiencelevel"/>
+          <Item Value="Noofvacancies"/>
+          <Item Value="Skillset"/>
+          <Item Value="Jobpostedon"/>
+          <Item Value="Deadline"/>
+          <Item Value="Noofcandidatesapplied"/>
+          <Item Value="Jobdesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="JobsVOIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="JobsVOIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ORSAppModuleDataControl1"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ORSAppModuleDataControl1"/>
+    <tree IterBinding="JobsVOIterator" id="JobsVO1">
+      <nodeDefinition DefName="oracle.demo.project.model.views.JobsVO" Name="JobsVO10">
+        <AttrNames>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Experiencelevel"/>
+          <Item Value="Noofvacancies"/>
+          <Item Value="Skillset"/>
+          <Item Value="Jobpostedon"/>
+          <Item Value="Deadline"/>
+          <Item Value="Noofcandidatesapplied"/>
+          <Item Value="Jobdesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InterviewProcessVOIterator" id="InterviewProcessVO">
+      <nodeDefinition DefName="oracle.demo.project.model.views.InterviewProcessVO" Name="InterviewProcessVO0">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Candidatename"/>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Employeeid"/>
+          <Item Value="Scheduledon"/>
+          <Item Value="Round"/>
+          <Item Value="Status"/>
+          <Item Value="Unnamed1"/>
+          <Item Value="Unnamed2"/>
+          <Item Value="Unnamed3"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CandidatesVOIterator" id="CandidatesVO">
+      <nodeDefinition DefName="oracle.demo.project.model.views.CandidatesVO" Name="CandidatesVO0">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Contact"/>
+          <Item Value="Firstname"/>
+          <Item Value="Lastname"/>
+          <Item Value="Skillset"/>
+          <Item Value="Username"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CandidatesVOIterator" id="CandidatesVO1">
+      <nodeDefinition DefName="oracle.demo.project.model.views.CandidatesVO" Name="CandidatesVO10">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Contact"/>
+          <Item Value="Firstname"/>
+          <Item Value="Lastname"/>
+          <Item Value="Skillset"/>
+          <Item Value="Username"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InterviewProcessVOIterator" id="InterviewProcessVO1">
+      <nodeDefinition DefName="oracle.demo.project.model.views.InterviewProcessVO" Name="InterviewProcessVO10">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Candidatename"/>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Employeeid"/>
+          <Item Value="Scheduledon"/>
+          <Item Value="Round"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="JobsVOIterator" id="JobsVO2">
+      <nodeDefinition DefName="oracle.demo.project.model.views.JobsVO" Name="JobsVO20">
+        <AttrNames>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Experiencelevel"/>
+          <Item Value="Noofvacancies"/>
+          <Item Value="Skillset"/>
+          <Item Value="Jobpostedon"/>
+          <Item Value="Deadline"/>
+          <Item Value="Noofcandidatesapplied"/>
+          <Item Value="Jobdesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

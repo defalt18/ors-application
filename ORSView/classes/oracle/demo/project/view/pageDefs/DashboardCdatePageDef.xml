@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="DashboardCdatePageDef"
+                Package="oracle.demo.project.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InterviewProcessVO" RangeSize="25" DataControl="ORSAppModuleDataControl1"
+              id="InterviewProcessVOIterator"/>
+    <searchRegion Binds="InterviewProcessVOIterator" Criteria="FilterCdatesByIdOrName"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InterviewProcessVOQuery"/>
+    <iterator Binds="ApplicationsVO" RangeSize="25" DataControl="ORSAppModuleDataControl1" id="ApplicationsVOIterator"/>
+    <searchRegion Binds="ApplicationsVOIterator" Criteria="FilterByCdateId"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ApplicationsVOQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InterviewProcessVOIterator" id="InterviewProcessVO">
+      <nodeDefinition DefName="oracle.demo.project.model.views.InterviewProcessVO" Name="InterviewProcessVO0">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Candidatename"/>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Scheduledon"/>
+          <Item Value="Round"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ApplicationsVOIterator" id="ApplicationsVO">
+      <nodeDefinition DefName="oracle.demo.project.model.views.ApplicationsVO" Name="ApplicationsVO0">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Jobid"/>
+          <Item Value="Appliedon"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

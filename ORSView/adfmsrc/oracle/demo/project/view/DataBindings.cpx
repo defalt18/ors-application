@@ -6,12 +6,20 @@
     <page path="/Login.jsf" usageId="oracle_demo_project_view_LoginPageDef"/>
     <page path="/JobPortal.jsf" usageId="oracle_demo_project_view_JobPortalPageDef"/>
     <page path="/testpage.jsf" usageId="oracle_demo_project_view_testpagePageDef"/>
+    <page path="/DashboardHR.jsf" usageId="oracle_demo_project_view_DashboardHRPageDef"/>
+    <page path="/DashboardCdate.jsf" usageId="oracle_demo_project_view_DashboardCdatePageDef"/>
+    <page path="/DashboardEmp.jsf" usageId="oracle_demo_project_view_DashboardEmpPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="oracle_demo_project_view_SignUpPagePageDef" path="oracle.demo.project.view.pageDefs.SignUpPagePageDef"/>
     <page id="oracle_demo_project_view_LoginPageDef" path="oracle.demo.project.view.pageDefs.LoginPageDef"/>
     <page id="oracle_demo_project_view_JobPortalPageDef" path="oracle.demo.project.view.pageDefs.JobPortalPageDef"/>
     <page id="oracle_demo_project_view_testpagePageDef" path="oracle.demo.project.view.pageDefs.testpagePageDef"/>
+    <page id="oracle_demo_project_view_DashboardHRPageDef" path="oracle.demo.project.view.pageDefs.DashboardHRPageDef"/>
+    <page id="oracle_demo_project_view_DashboardCdatePageDef"
+          path="oracle.demo.project.view.pageDefs.DashboardCdatePageDef"/>
+    <page id="oracle_demo_project_view_DashboardEmpPageDef"
+          path="oracle.demo.project.view.pageDefs.DashboardEmpPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ORSAppModuleDataControl" Package="oracle.demo.project.model.entities"

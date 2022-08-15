@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="CdateId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="ApplicationEO"
     Entity="oracle.demo.project.model.entities.ApplicationEO"/>
@@ -60,4 +64,40 @@
     EntityAttrName="Unnamed3"
     EntityUsage="ApplicationEO"
     AliasName="UNNAMED3"/>
+  <ViewCriteria
+    Name="FilterByCdateId"
+    ViewObjectName="oracle.demo.project.model.views.ApplicationsVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ApplicationsVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Candidateid"
+        ViewAttribute="Candidateid"
+        Operator="="
+        Conjunction="AND"
+        Value=":CdateId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>

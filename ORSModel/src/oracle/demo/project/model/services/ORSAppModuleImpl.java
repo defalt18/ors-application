@@ -1,8 +1,12 @@
 package oracle.demo.project.model.services;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.Map;
 import java.util.UUID;
 
-import oracle.demo.project.model.entities.UserData;
+import oracle.demo.project.model.entities.UserBean;
 
 import oracle.jbo.Row;
 import oracle.jbo.ViewCriteria;
@@ -55,8 +59,8 @@ public class ORSAppModuleImpl extends ApplicationModuleImpl {
         return (ViewObjectImpl) findViewObject("JobsVO");
     }
     
-    public UserData validateLoginCredentials(String username, String password) {
-            UserData user = null;
+    public UserBean validateLoginCredentials(String username, String password) {
+            UserBean user = null;
             ViewObject vo = getCredsVO();
             ViewCriteria vc = vo.createViewCriteria();
             ViewCriteriaRow vcr = vc.createViewCriteriaRow();
@@ -66,25 +70,66 @@ public class ORSAppModuleImpl extends ApplicationModuleImpl {
             vo.applyViewCriteria(vc);
             vo.executeQuery();
             if (vo.hasNext()) {
-                user = new UserData();
+                user = new UserBean();
                 Row row = vo.next();
                 user.setUsername(row.getAttribute("Username").toString());
+                user.setUserType(row.getAttribute("UserType").toString());
             }
             return user;
         }
+    
+    public UserBean getUserWithCredentials(String username, String password) {
+        UserBean user = null;
+        user = validateLoginCredentials(username, password);
+        
+        if(user == null) return null;
+        
+        ViewObject vo = null;
+        
+        if(user.getUserType().equals("0")) vo = getCandidatesVO();
+        else vo = getEmployeesVO();
+        
+        ViewCriteria vc = vo.createViewCriteria();
+        ViewCriteriaRow vcr = vc.createViewCriteriaRow();
+        vcr.setAttribute("Username", username);
+        vc.add(vcr);
+        vo.applyViewCriteria(vc);
+        vo.executeQuery();
+        
+        if (vo.hasNext()) {
+            Row row = vo.next();
+            Map details = new Hashtable();
+            String[] keys = row.getAttributeNames();
+            
+            for(int i = 0; i < keys.length; i++) {
+                
+                try {
+                    details.put(keys[i], row.getAttribute(keys[i]).toString());
+                }
+                catch (Exception e) {System.out.println(e);}
+                
+            }
+            
+            details.put("userType", user.getUserType());
+            
+            user = new UserBean(details);
+        }
+        
+        return user;
+    }
         
         public boolean checkIfUserAlreadyExist(String username) {
-            UserData user = validateLoginCredentials(username, "");
+            UserBean user = validateLoginCredentials(username, "");
             if(user == null) return false;
             return true;
         }
         
-        public String registerUser(String firstName, String lastName, String phoneNumber, String username, String password, String skillSet) {
+        public UserBean registerUser(String firstName, String lastName, String phoneNumber, String username, String password, String skillSet) {
             ViewObject credsVO = getCredsVO();
             ViewObject candidateVO = getCandidatesVO();
             
             if(checkIfUserAlreadyExist(username))
-                return "user already exists";
+                return null;
             
             Row newCreds = credsVO.createRow();
             newCreds.setAttribute("Username", username);
@@ -107,9 +152,46 @@ public class ORSAppModuleImpl extends ApplicationModuleImpl {
             candidateVO.executeQuery();
             
             this.getDBTransaction().commit();
+            
+            Map details = new Hashtable<>();
+            String[] keys = newUserDetail.getAttributeNames();
+            
+            for(int i = 0; i < keys.length; i++) {
+                try {
+                    details.put(keys[i], newUserDetail.getAttribute(keys[i]).toString());
+                }
+                catch (Exception e) {System.out.println(e);}
+            }
+            
+            details.put("userType", "0");
+            
+            UserBean user = new UserBean(details);
 
-            return "success";
+            return user;
         }
 
+    /**
+     * Container's getter for InterviewProcessVO1.
+     * @return InterviewProcessVO1
+     */
+    public ViewObjectImpl getInterviewProcessVO() {
+        return (ViewObjectImpl) findViewObject("InterviewProcessVO");
+    }
+
+    /**
+     * Container's getter for ApplicationsVO1.
+     * @return ApplicationsVO1
+     */
+    public ViewObjectImpl getApplicationsVO() {
+        return (ViewObjectImpl) findViewObject("ApplicationsVO");
+    }
+
+    /**
+     * Container's getter for CandidatesHistoryVO1.
+     * @return CandidatesHistoryVO1
+     */
+    public ViewObjectImpl getCandidatesHistoryVO() {
+        return (ViewObjectImpl) findViewObject("CandidatesHistoryVO");
+    }
 }
 

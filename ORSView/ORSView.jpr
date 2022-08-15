@@ -97,6 +97,11 @@
                   <url path="."/>
                </list>
             </hash>
+            <hash>
+               <list n="url-path">
+                  <url path="src/META-INF/resource/images/"/>
+               </list>
+            </hash>
          </list>
          <list n="url-path"/>
       </hash>

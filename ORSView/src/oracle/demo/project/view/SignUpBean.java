@@ -1,11 +1,16 @@
 package oracle.demo.project.view;
 
+import java.util.Map;
+
 import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
+
 import javax.faces.context.FacesContext;
 
 import javax.faces.event.ValueChangeEvent;
 
+import oracle.adf.share.ADFContext;
+
+import oracle.demo.project.model.entities.UserBean;
 import oracle.demo.project.model.services.ORSAppModuleImpl;
 
 import oracle.jbo.ApplicationModule;
@@ -80,15 +85,16 @@ public class SignUpBean {
         String config = "ORSAppModuleLocal";
         ApplicationModule ami = Configuration.createRootApplicationModule(amDef, config);
         ORSAppModuleImpl am = (ORSAppModuleImpl) ami;
-        String status = am.registerUser(firstName, lastName, phoneNumber, username, password, skillSet.substring(1, skillSet.length() - 1));
+        UserBean user = am.registerUser(firstName, lastName, phoneNumber, username, password, skillSet.substring(1, skillSet.length() - 1));
 
-        if (status == "user already exists") {
+        if (user == null) {
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "username already exists", "");
             context.addMessage("", message);
             return null;
         }
-
-        return "goToDashboard";
+        
+        ADFContext.getCurrent().getSessionScope().putAll(user.getUserMap());
+        return "goToCandidateDashboard";
     }
 
     public void onChangeSelect(ValueChangeEvent valueChangeEvent) {

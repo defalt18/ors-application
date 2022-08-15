@@ -13,6 +13,14 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="CdateId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="EmpId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="InterviewProcessEO"
     Entity="oracle.demo.project.model.entities.InterviewProcessEO"/>
@@ -88,4 +96,76 @@
     EntityAttrName="Unnamed3"
     EntityUsage="InterviewProcessEO"
     AliasName="UNNAMED3"/>
+  <ViewCriteria
+    Name="FilterCdatesByIdOrName"
+    ViewObjectName="oracle.demo.project.model.views.InterviewProcessVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InterviewProcessVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="InterviewProcessVOCriteria_InterviewProcessVOCriteria_row_0_Candidateid"
+        ViewAttribute="Candidateid"
+        Operator="="
+        Conjunction="AND"
+        Value=":CdateId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="FilterByEmpId"
+    ViewObjectName="oracle.demo.project.model.views.InterviewProcessVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InterviewProcessVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Employeeid"
+        ViewAttribute="Employeeid"
+        Operator="="
+        Conjunction="AND"
+        Value=":EmpId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>
