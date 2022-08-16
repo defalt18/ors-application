@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <metadata-resource id="__18">/WEB-INF/candidate.xml</metadata-resource>
   <view id="DashboardPage">
     <page>/DashboardPage.jsf</page>
   </view>
@@ -67,4 +68,19 @@
     <managed-bean-class>oracle.demo.project.view.JobDescPopupBean</managed-bean-class>
     <managed-bean-scope>backingBean</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__15">
+    <managed-bean-name>PrintPageBean</managed-bean-name>
+    <managed-bean-class>oracle.demo.project.view.PrintPageBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+        <managed-property id="__17">
+            <property-name>printableBehavior</property-name>
+            <property-class>oracle.demo.project.view.PrintableBehaviorBean</property-class>
+            <value>#{PrintableBehavior}</value>
+        </managed-property>
+  </managed-bean>
+  <managed-bean id="__16">
+    <managed-bean-name>PrintableBehaviorBean</managed-bean-name>
+    <managed-bean-class>oracle.demo.project.view.PrintableBehaviorBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
 </adfc-config>

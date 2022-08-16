@@ -50,7 +50,7 @@ public class LoginPageBean {
         } else {
             ADFContext.getCurrent().getSessionScope().put("user", user);
             String previousPage = ADFContext.getCurrent().getPageFlowScope().get("routedFrom").toString();
-            return ((previousPage == null) ? previousPage : "goToDashboard");
+            return ((previousPage == null) ? previousPage : "goToPortal");
         }
         return null;
     }

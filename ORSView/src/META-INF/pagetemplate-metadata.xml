@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageTemplateDefs xmlns="http://xmlns.oracle.com/adf/faces/rich/pagetemplate">
+  <pagetemplate-jsp-ui-def>/templateCand.jsf</pagetemplate-jsp-ui-def>
+  <pagetemplate-jsp-ui-def>/templateCdate.jsf</pagetemplate-jsp-ui-def>
+  <pagetemplate-jsp-ui-def>/candTemplate.jsf</pagetemplate-jsp-ui-def>
+  <pagetemplate-jsp-ui-def>/cdateTemplate.jsf</pagetemplate-jsp-ui-def>
+</pageTemplateDefs>

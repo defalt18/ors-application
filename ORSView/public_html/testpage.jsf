@@ -1,42 +1,49 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html" beforePhase="#{PrintPageBean.beforePhaseMethod}">
     <af:document title="testpage.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
             <af:panelGridLayout id="pgl1">
-                <af:gridRow height="50px" id="gr1">
+                <af:gridRow height="50px" id="gr1" rendered="#{adfFacesContext.outputMode != 'printable'}">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        
                         <!-- Header -->
                     </af:gridCell>
                 </af:gridRow>
                 <af:gridRow height="100%" id="gr2">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
                         <af:panelSplitter orientation="horizontal" splitterPosition="100" id="ps1">
-                            <f:facet name="first">
+                            <f:facet name="first" rendered="#{adfFacesContext.outputMode != 'printable'}">
                                 <!-- Left -->
                             </f:facet>
                             <f:facet name="second">
                                 <!-- Content -->
+                                
                                 <af:panelGroupLayout layout="vertical" id="pgl2">
-                                    <af:panelHeader text="JobEO" id="ph1">
+                                    <af:panelHeader text="JobEO" id="ph1" rendered="#{adfFacesContext.outputMode != 'printable'}">
                                         <af:query id="qryId1" headerText="Search" disclosed="true"
                                                   value="#{bindings.JobsVOCriteriaQuery.queryDescriptor}"
                                                   model="#{bindings.JobsVOCriteriaQuery.queryModel}"
                                                   queryListener="#{bindings.JobsVOCriteriaQuery.processQuery}"
                                                   queryOperationListener="#{bindings.JobsVOCriteriaQuery.processQueryOperation}"
                                                   resultComponentId="::resId1"/>
+                                         
                                     </af:panelHeader>
+                                    <af:button text="Print Table" id="b1" action="#{PrintPageBean.onPrint}" rendered="#{adfFacesContext.outputMode != 'printable'}">
+                                            <af:showPrintablePageBehavior/>
+                                        </af:button>
                                     <af:table value="#{bindings.JobsVO.collectionModel}" var="row"
                                               rows="#{bindings.JobsVO.rangeSize}"
                                               emptyText="#{bindings.JobsVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                               rowBandingInterval="0"
                                               selectedRowKeys="#{bindings.JobsVO.collectionModel.selectedRow}"
-                                              rowSelection="multiple" fetchSize="#{bindings.JobsVO.rangeSize}"
+                                              rowSelection="#{adfFacesContext.outputMode == 'printable' ? 'none' : 'single'}" fetchSize="#{bindings.JobsVO.rangeSize}"
                                               filterModel="#{bindings.JobsVOCriteriaQuery.queryDescriptor}"
                                               filterVisible="true"
                                               queryListener="#{bindings.JobsVOCriteriaQuery.processQuery}"
-                                              varStatus="vs" id="resId1" partialTriggers="::b2">
+                                              varStatus="vs" id="resId1" partialTriggers="::b2" >
                                         <af:column sortProperty="#{bindings.JobsVO.hints.Jobid.name}" filterable="true"
                                                    sortable="true" headerText="#{bindings.JobsVO.hints.Jobid.label}"
                                                    id="resId1c1">

@@ -3,4 +3,5 @@
    <BusinessComponentProjectRegistry path="oracle/demo/project/model/ORSModel.jpx"/>
    <BusinessComponentServiceRegistry path="oracle/demo/project/model/entities/common/bc4j.xcfg"/>
    <BusinessComponentServiceRegistry path="oracle/demo/project/model/services/common/bc4j.xcfg"/>
+   <BusinessComponentServiceRegistry path="oracle/demo/project/model/views/common/bc4j.xcfg"/>
 </MetadataDirectory>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="oracle.demo.project.model.views.AppModule">
+    <AppModuleConfig name="AppModuleLocal" jbo.project="oracle.demo.project.model.ORSModel"
+                     ApplicationName="oracle.demo.project.model.views.AppModule" DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/ORSDBDS"/>
+      <Security AppModuleJndiName="oracle.demo.project.model.views.AppModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AppModuleShared" jbo.project="oracle.demo.project.model.ORSModel"
+                     ApplicationName="oracle.demo.project.model.views.AppModule" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/ORSDBDS"/>
+      <Security AppModuleJndiName="oracle.demo.project.model.views.AppModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

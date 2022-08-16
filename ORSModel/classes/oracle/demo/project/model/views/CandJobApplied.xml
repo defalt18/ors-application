@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CandJobApplied"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="oracle.demo.project.model.views.CandJobApplied_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="job_id"
+    Kind="where"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="c_id"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="JobEO"
+    Entity="oracle.demo.project.model.entities.JobEO"/>
+  <EntityUsage
+    Name="ApplicationEO"
+    Entity="oracle.demo.project.model.entities.ApplicationEO"
+    Association="oracle.demo.project.model.entities.SysC004695715Assoc"
+    AssociationEnd="oracle.demo.project.model.entities.SysC004695715Assoc.ApplicationEO"
+    SourceUsage="oracle.demo.project.model.views.CandJobApplied.JobEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="oracle.demo.project.model.entities.ApplicationEO.Jobid"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="oracle.demo.project.model.entities.JobEO.Jobid"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="Jobid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Jobid"
+    EntityUsage="JobEO"
+    AliasName="JOBID"/>
+  <ViewAttribute
+    Name="Jobdesc"
+    PrecisionRule="true"
+    EntityAttrName="Jobdesc"
+    EntityUsage="JobEO"
+    AliasName="JOBDESC"/>
+  <ViewAttribute
+    Name="Jobname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Jobname"
+    EntityUsage="JobEO"
+    AliasName="JOBNAME"/>
+  <ViewAttribute
+    Name="Candidateid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Candidateid"
+    EntityUsage="ApplicationEO"
+    AliasName="CANDIDATEID"/>
+  <ViewAttribute
+    Name="Applicationstatus"
+    PrecisionRule="true"
+    EntityAttrName="Applicationstatus"
+    EntityUsage="ApplicationEO"
+    AliasName="APPLICATIONSTATUS"/>
+  <ViewAttribute
+    Name="Appliedon"
+    PrecisionRule="true"
+    EntityAttrName="Appliedon"
+    EntityUsage="ApplicationEO"
+    AliasName="APPLIEDON"/>
+  <ViewAttribute
+    Name="Jobid1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Jobid"
+    EntityUsage="ApplicationEO"
+    AliasName="JOBID1"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Jobid"/>
+    <Item Value="Jobid1"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.demo.project.model.ORSModelBundle"/>
+  </ResourceBundle>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="CandJobAppliedWhereCriteria"
+      ViewObjectName="oracle.demo.project.model.views.CandJobApplied"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="CandJobAppliedWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="Jobid"
+          ViewAttribute="Jobid"
+          Operator="="
+          Conjunction="AND"
+          Value=":job_id"
+          GenerateIsNullClauseForBindVars="false"
+          IsBindVarValue="true"
+          Required="Optional"/>
+        <ViewCriteriaItem
+          Name="Candidateid"
+          ViewAttribute="Candidateid"
+          Operator="="
+          Conjunction="AND"
+          Value=":c_id"
+          UpperColumns="0"
+          GenerateIsNullClauseForBindVars="false"
+          IsBindVarValue="true"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+</ViewObject>

@@ -5,6 +5,8 @@
     <af:document title="testpage.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
+            <af:pageTemplate viewId="/templateCand.jsf" id="pt1">
+                <f:facet name="body">
             <af:panelGridLayout id="pgl1">
                 <af:gridRow height="50px" id="gr1">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
@@ -38,7 +40,7 @@
                                               filterModel="#{bindings.JobsVOCriteriaQuery.queryDescriptor}"
                                               filterVisible="true"
                                               queryListener="#{bindings.JobsVOCriteriaQuery.processQuery}"
-                                              varStatus="vs" id="resId1">
+                                              varStatus="vs" id="resId1" partialTriggers="::b2">
                                         <af:column sortProperty="#{bindings.JobsVO.hints.Jobid.name}" filterable="true"
                                                    sortable="true" headerText="#{bindings.JobsVO.hints.Jobid.label}"
                                                    id="resId1c1">
@@ -215,7 +217,8 @@
                                                                       pattern="#{bindings.Noofcandidatesapplied.format}"/>
                                                 </af:inputText>
                                                 <f:facet name="footer">
-                                                    <af:button text="Submit" id="b2" action="#{backingBeanScope.JobDescPopupBean.onSubmit(bindings.Jobid.inputValue)}"/>
+                                                    <af:button text="Submit Application" id="b2" action="#{backingBeanScope.JobDescPopupBean.onSubmit(bindings.Jobid.inputValue)}"
+                                                               partialSubmit="true"/>
                                                 </f:facet>
                                             </af:panelFormLayout>
                                         </af:panelWindow>

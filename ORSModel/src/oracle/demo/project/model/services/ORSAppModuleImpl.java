@@ -1,5 +1,7 @@
 package oracle.demo.project.model.services;
 
+import java.sql.Timestamp;
+
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
@@ -149,9 +151,10 @@ public class ORSAppModuleImpl extends ApplicationModuleImpl {
         ViewObject applicationsVO = getApplicationsVO();
         
         try {
+            Timestamp sqlTimestamp = new Timestamp(System.currentTimeMillis());
             Row newApplication = applicationsVO.createRow();
             newApplication.setAttribute("Applicationstatus", "in progress");
-            newApplication.setAttribute("Appliedon", java.time.LocalDate.now());
+            newApplication.setAttribute("Appliedon", sqlTimestamp);
             newApplication.setAttribute("Candidateid", user.getCandidateId());
             newApplication.setAttribute("Jobid", jobId);
 

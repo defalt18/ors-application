@@ -40,7 +40,7 @@
       <property
          name="fromOutcome">goToDashboard</property>
       <property
-         name="sdm:polyPoints">R42,311.5,252.30078,578.9037,229.80078,L46</property>
+         name="sdm:polyPoints">R40,312.29553,250.70973,577.796,229.0052,L45</property>
    </ControlFlowCase>
    <View
       id="View8">
@@ -65,7 +65,7 @@
       <property
          name="fromOutcome">goToDashboard</property>
       <property
-         name="sdm:polyPoints">T50,407.07812,377.30078,580.31055,236.80078,L54</property>
+         name="sdm:polyPoints">T57,411.37366,376.50522,579.515,237.59625,L55</property>
    </ControlFlowCase>
    <View
       id="View11">
@@ -90,7 +90,7 @@
       <property
          name="fromOutcome">goToDashboard</property>
       <property
-         name="sdm:polyPoints">T50,643.5,383.16797,621.31055,287.30078,B50</property>
+         name="sdm:polyPoints">T43,639.20447,382.37238,617.015,289.09366,B43</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -100,7 +100,7 @@
       <property
          name="fromOutcome">goToLogin</property>
       <property
-         name="sdm:polyPoints">L50,602.5,437.16797,311.5,262.80078,R54</property>
+         name="sdm:polyPoints">L45,601.70447,432.87238,314.67426,259.30078,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -110,7 +110,7 @@
       <property
          name="fromOutcome">goToSignUp</property>
       <property
-         name="sdm:polyPoints">B50,270.5,313.30078,403.57812,377.30078,T44</property>
+         name="sdm:polyPoints">B50,270.5,314.0963,402.7826,376.50522,T43</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -120,7 +120,7 @@
       <property
          name="fromOutcome">goToPortal</property>
       <property
-         name="sdm:polyPoints">B56,624.81055,287.30078,647.0,382.36514,T56</property>
+         name="sdm:polyPoints">B57,625.6061,288.09625,647.79553,381.36978,T57</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -130,6 +130,6 @@
       <property
          name="fromOutcome">goToPortal</property>
       <property
-         name="sdm:polyPoints">R58,311.5,266.30078,600.5578,440.66797,L54</property>
+         name="sdm:polyPoints">R60,312.29553,267.8918,599.3173,441.46344,L55</property>
    </ControlFlowCase>
 </SDM>
