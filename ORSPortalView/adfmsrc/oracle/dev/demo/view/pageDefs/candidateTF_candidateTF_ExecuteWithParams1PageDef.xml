@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="candidateTF_candidateTF_ExecuteWithParams1PageDef" Package="oracle.dev.demo.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ApplicationsVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl"
+              id="ApplicationsVOIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ApplicationsVOIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="Cdate_id" NDValue="#{sessionScope.CandidateId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

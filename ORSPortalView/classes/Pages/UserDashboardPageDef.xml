@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="UserDashboardPageDef"
+                Package="Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CandidatesVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl"
+              id="CandidatesVOIterator"/>
+    <iterator Binds="EmployeesVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl" id="EmployeesVOIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CandidatesVOIterator" id="Candidateid">
+      <AttrNames>
+        <Item Value="Candidateid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidatesVOIterator" id="Contact">
+      <AttrNames>
+        <Item Value="Contact"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidatesVOIterator" id="Firstname">
+      <AttrNames>
+        <Item Value="Firstname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidatesVOIterator" id="Lastname">
+      <AttrNames>
+        <Item Value="Lastname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidatesVOIterator" id="Username">
+      <AttrNames>
+        <Item Value="Username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVOIterator" id="Contact1">
+      <AttrNames>
+        <Item Value="Contact"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVOIterator" id="Firstname1">
+      <AttrNames>
+        <Item Value="Firstname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVOIterator" id="Lastname1">
+      <AttrNames>
+        <Item Value="Lastname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVOIterator" id="Jobname">
+      <AttrNames>
+        <Item Value="Jobname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVOIterator" id="Experiencelevel">
+      <AttrNames>
+        <Item Value="Experiencelevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVOIterator" id="Rounds">
+      <AttrNames>
+        <Item Value="Rounds"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVOIterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVOIterator" id="Username1">
+      <AttrNames>
+        <Item Value="Username"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

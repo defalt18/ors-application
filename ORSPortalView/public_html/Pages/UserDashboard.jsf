@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="UserDashboard.jsf" id="d1">
+    <af:resource type="javascript">
+          setTimeout(() => window.history.forward(), 0);
+          window.onunload = () => null;
+        </af:resource>
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/Templates/ORSPageTemplate.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow marginTop="10px" height="auto" marginBottom="10px" id="gr1">
+                            <af:gridCell marginStart="20px" width="35%" id="gc1">
+                                <h:outputLabel value="Welcome #{sessionScope.Firstname} #{sessionScope.Lastname}" id="ol1"
+                                       style="font-size:xx-large; font-weight:300; color:#2d70cd; margin: 20px 0px;"/>
+                                <af:panelFormLayout id="pfl1" rendered="#{sessionScope.UserType == '0'}" inlineStyle="margin-top: 40px;">
+                                    <af:panelLabelAndMessage label="Candidate Id" id="plam1">
+                                        <af:outputText value="#{sessionScope.CandidateId}"
+                                                       shortDesc="#{bindings.Candidateid.hints.tooltip}" id="ot1"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Contact Info" id="plam2">
+                                        <af:outputText value="#{sessionScope.Contact}"
+                                                       shortDesc="#{bindings.Contact.hints.tooltip}" id="ot2"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="First Name" id="plam3">
+                                        <af:outputText value="#{sessionScope.Firstname}"
+                                                       shortDesc="#{bindings.Firstname.hints.tooltip}" id="ot4"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Last Name" id="plam4">
+                                        <af:outputText value="#{sessionScope.Lastname}"
+                                                       shortDesc="#{bindings.Lastname.hints.tooltip}" id="ot5"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Username" id="plam5">
+                                        <af:outputText value="#{sessionScope.Username}"
+                                                       shortDesc="#{bindings.Username.hints.tooltip}" id="ot6"/>
+                                    </af:panelLabelAndMessage>
+                                </af:panelFormLayout>
+                                <af:panelFormLayout id="pfl2" rendered="#{sessionScope.UserType != '0'}" inlineStyle="margin-top: 40px;">
+                                    <af:panelLabelAndMessage label="Contact Info" id="plam6">
+                                        <af:outputText value="#{sessionScope.Contact}"
+                                                       shortDesc="#{bindings.Contact1.hints.tooltip}" id="ot7"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="First Name" id="plam7">
+                                        <af:outputText value="#{sessionScope.Firstname}"
+                                                       shortDesc="#{bindings.Firstname1.hints.tooltip}" id="ot8"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Last Name" id="plam8">
+                                        <af:outputText value="#{sessionScope.Lastname}"
+                                                       shortDesc="#{bindings.Lastname1.hints.tooltip}" id="ot9"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Job role" id="plam9">
+                                        <af:outputText value="#{sessionScope.Jobname}"
+                                                       shortDesc="#{bindings.Jobname.hints.tooltip}" id="ot10"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Experience Level" id="plam10">
+                                        <af:outputText value="#{sessionScope.Experiencelevel}"
+                                                       shortDesc="#{bindings.Experiencelevel.hints.tooltip}" id="ot11"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Rounds" id="plam11">
+                                        <af:outputText value="#{sessionScope.Rounds == null ? 'NA' : sessionScope.Rounds}"
+                                                       shortDesc="#{bindings.Rounds.hints.tooltip}" id="ot12">
+                                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Rounds.format}"/>
+                                        </af:outputText>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Current Status" id="plam12">
+                                        <af:outputText value="#{sessionScope.Status == null ? 'NA' : sessionScope.Status}"
+                                                       shortDesc="#{bindings.Status.hints.tooltip}" id="ot13"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Username" id="plam13">
+                                        <af:outputText value="#{sessionScope.Username}"
+                                                       shortDesc="#{bindings.Username1.hints.tooltip}" id="ot14"/>
+                                    </af:panelLabelAndMessage>
+                                </af:panelFormLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="0px" width="65%" marginEnd="0px" id="gc2">
+                                <af:image source="/images/dashboard-image.png" shortDesc="Dashboard Image" id="i1" inlineStyle="object-fit: contain; width: 100%; height: 100%"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                    
+                            
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

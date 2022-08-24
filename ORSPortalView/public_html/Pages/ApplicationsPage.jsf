@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="ApplicationsPage.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:resource type="javascript">
+          setTimeout(() =  > window.history.forward(), 0);
+          window.onunload = () =  > null;
+        </af:resource>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/Templates/ORSPageTemplate.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:panelGridLayout id="pgl1">
+                        <!--<af:gridRow marginTop="0px" height="auto" id="gr3">
+                            <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="gc3">
+                                <af:button text="Find Records" id="b1"
+                                           actionListener="#{bindings.ExecuteWithParams.execute}"
+                                           disabled="#{!bindings.ExecuteWithParams.enabled}"/>
+                            </af:gridCell>
+                        </af:gridRow>-->
+                        <af:gridRow rendered="#{sessionScope.UserType == '2'}" marginTop="0px" height="auto" id="gr1">
+                            <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="gc1"/>
+                        </af:gridRow>
+                        <af:gridRow marginTop="10px" height="auto" marginBottom="0px" id="gr2">
+                            <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="gc2" halign="stretch"
+                                         valign="stretch">
+                                <af:panelCollection id="pc1" inlineStyle="width: 100%">
+                                    <af:table value="#{bindings.ApplicationsVO.collectionModel}" var="row"
+                                              rows="#{bindings.ApplicationsVO.rangeSize}"
+                                              emptyText="#{bindings.ApplicationsVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.ApplicationsVO.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ApplicationsVO.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.ApplicationsVO.rangeSize}"
+                                              filterModel="#{bindings.ApplicationsVOQuery.queryDescriptor}"
+                                              filterVisible="true"
+                                              queryListener="#{bindings.ApplicationsVOQuery.processQuery}"
+                                              varStatus="vs" id="t1" columnStretching="column:c1"
+                                              partialTriggers=":::b1">
+                                        <af:column sortProperty="#{bindings.ApplicationsVO.hints.Candidateid.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ApplicationsVO.hints.Candidateid.label}"
+                                                   id="c1">
+                                            <af:outputText value="#{row.Candidateid}"
+                                                           shortDesc="#{bindings.ApplicationsVO.hints.Candidateid.tooltip}"
+                                                           id="ot1"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ApplicationsVO.hints.Jobid.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ApplicationsVO.hints.Jobid.label}" id="c2">
+                                            <af:outputText value="#{row.Jobid}"
+                                                           shortDesc="#{bindings.ApplicationsVO.hints.Jobid.tooltip}"
+                                                           id="ot2">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ApplicationsVO.hints.Jobid.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ApplicationsVO.hints.Appliedon.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ApplicationsVO.hints.Appliedon.label}"
+                                                   id="c3">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.ApplicationsVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Appliedon.value}"
+                                                              id="id1">
+                                                    <af:convertDateTime pattern="#{bindings.ApplicationsVO.hints.Appliedon.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:outputText value="#{row.Appliedon}"
+                                                           shortDesc="#{bindings.ApplicationsVO.hints.Appliedon.tooltip}"
+                                                           id="ot4">
+                                                <af:convertDateTime pattern="#{bindings.ApplicationsVO.hints.Appliedon.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ApplicationsVO.hints.Applicationstatus.name}"
+                                                   filterable="true" sortable="true"
+                                                   rendered="#{sessionScope.UserType == '2'}"
+                                                   headerText="#{bindings.ApplicationsVO.hints.Applicationstatus.label}"
+                                                   id="c4">
+                                            <af:outputText value="#{row.Applicationstatus}"
+                                                           shortDesc="#{bindings.ApplicationsVO.hints.Applicationstatus.tooltip}"
+                                                           id="ot5"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="CandidatesPage.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:resource type="javascript">
+          setTimeout(() =  > window.history.forward(), 0);
+          window.onunload = () =  > null;
+        </af:resource>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/Templates/ORSPageTemplate.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow marginTop="0px" height="auto" id="gr1">
+                            <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="gc1"/>
+                        </af:gridRow>
+                        <af:gridRow marginTop="0px" height="auto" marginBottom="0px" id="gr2">
+                            <af:gridCell marginStart="0px" width="50%" marginEnd="0px" id="gc2" halign="stretch"
+                                         valign="stretch">
+                                <af:panelBox text="Candidate Information" id="pb1" showDisclosure="false"
+                                             inlineStyle="width: 100%">
+                                    <af:panelCollection id="pc1" inlineStyle="width: 100%">
+                                        <af:table value="#{bindings.CandidatesVO.collectionModel}" var="row"
+                                                  rows="#{bindings.CandidatesVO.rangeSize}"
+                                                  emptyText="#{bindings.CandidatesVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.CandidatesVO.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.CandidatesVO.collectionModel.makeCurrent}"
+                                                  rowSelection="single" fetchSize="#{bindings.CandidatesVO.rangeSize}"
+                                                  filterModel="#{bindings.CandidatesVOQuery.queryDescriptor}"
+                                                  filterVisible="true"
+                                                  queryListener="#{bindings.CandidatesVOQuery.processQuery}"
+                                                  varStatus="vs" id="t1" columnStretching="column:c5">
+                                            <af:column sortProperty="#{bindings.CandidatesVO.hints.Candidateid.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidatesVO.hints.Candidateid.label}"
+                                                       id="c1">
+                                                <af:outputText value="#{row.Candidateid}"
+                                                               shortDesc="#{bindings.CandidatesVO.hints.Candidateid.tooltip}"
+                                                               id="ot1"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO.hints.Contact.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidatesVO.hints.Contact.label}"
+                                                       id="c2">
+                                                <af:outputText value="#{row.Contact}"
+                                                               shortDesc="#{bindings.CandidatesVO.hints.Contact.tooltip}"
+                                                               id="ot2"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO.hints.Firstname.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidatesVO.hints.Firstname.label}"
+                                                       id="c3">
+                                                <af:outputText value="#{row.Firstname}"
+                                                               shortDesc="#{bindings.CandidatesVO.hints.Firstname.tooltip}"
+                                                               id="ot4"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO.hints.Lastname.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidatesVO.hints.Lastname.label}"
+                                                       id="c4">
+                                                <af:outputText value="#{row.Lastname}"
+                                                               shortDesc="#{bindings.CandidatesVO.hints.Lastname.tooltip}"
+                                                               id="ot5"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO.hints.Skillset.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidatesVO.hints.Skillset.label}"
+                                                       id="c5">
+                                                <af:outputText value="#{row.Skillset}"
+                                                               shortDesc="#{bindings.CandidatesVO.hints.Skillset.tooltip}"
+                                                               id="ot6"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidatesVO.hints.Username.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidatesVO.hints.Username.label}"
+                                                       id="c9">
+                                                <af:outputText value="#{row.Username}"
+                                                               shortDesc="#{bindings.CandidatesVO.hints.Username.tooltip}"
+                                                               id="ot10"/>
+                                            </af:column>
+                                        </af:table>
+                                    </af:panelCollection>
+                                </af:panelBox>
+                            </af:gridCell>
+                            <af:gridCell id="gc5" halign="stretch" valign="stretch" width="50%">
+                                <af:panelBox text="Candidate Performance" id="pb2" showDisclosure="false">
+                                    <af:panelCollection id="pc2" inlineStyle="width: 100%; min-height: max-content;">
+                                        <af:table value="#{bindings.HistoriesByCId.collectionModel}" var="row"
+                                                  rows="#{bindings.HistoriesByCId.rangeSize}"
+                                                  emptyText="#{bindings.HistoriesByCId.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.HistoriesByCId.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.HistoriesByCId.collectionModel.makeCurrent}"
+                                                  rowSelection="single" fetchSize="#{bindings.HistoriesByCId.rangeSize}"
+                                                  filterModel="#{bindings.HistoriesByCIdQuery.queryDescriptor}"
+                                                  filterVisible="true"
+                                                  queryListener="#{bindings.HistoriesByCIdQuery.processQuery}"
+                                                  varStatus="vs" id="t2">
+                                            <af:column sortProperty="#{bindings.HistoriesByCId.hints.Candidateid.name}"
+                                                       filterable="true" sortable="true" headerText="Candidate Id"
+                                                       id="c6">
+                                                <af:outputText value="#{row.Candidateid}"
+                                                               shortDesc="#{bindings.HistoriesByCId.hints.Candidateid.tooltip}"
+                                                               id="ot7"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.HistoriesByCId.hints.Jobid.name}"
+                                                       filterable="true" sortable="true" headerText="Job Id" id="c7">
+                                                <af:outputText value="#{row.Jobid}"
+                                                               shortDesc="#{bindings.HistoriesByCId.hints.Jobid.tooltip}"
+                                                               id="ot8">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.HistoriesByCId.hints.Jobid.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.HistoriesByCId.hints.Roundno.name}"
+                                                       filterable="true" sortable="true" headerText="Round Number"
+                                                       id="c8">
+                                                <af:outputText value="#{row.Roundno}"
+                                                               shortDesc="#{bindings.HistoriesByCId.hints.Roundno.tooltip}"
+                                                               id="ot9">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.HistoriesByCId.hints.Roundno.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.HistoriesByCId.hints.Interviewerid.name}"
+                                                       filterable="true" sortable="true" headerText="Interview Eid"
+                                                       id="c10">
+                                                <af:outputText value="#{row.Interviewerid}"
+                                                               shortDesc="#{bindings.HistoriesByCId.hints.Interviewerid.tooltip}"
+                                                               id="ot11">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.HistoriesByCId.hints.Interviewerid.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.HistoriesByCId.hints.Status.name}"
+                                                       filterable="true" sortable="true" headerText="Current Status"
+                                                       id="c11">
+                                                <af:outputText value="#{row.Status}"
+                                                               shortDesc="#{bindings.HistoriesByCId.hints.Status.tooltip}"
+                                                               id="ot12"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.HistoriesByCId.hints.Feedback.name}"
+                                                       filterable="true" sortable="true" headerText="Feedback" id="c12">
+                                                <af:outputText value="#{row.Feedback}"
+                                                               shortDesc="#{bindings.HistoriesByCId.hints.Feedback.tooltip}"
+                                                               id="ot13"/>
+                                            </af:column>
+                                        </af:table>
+                                    </af:panelCollection>
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

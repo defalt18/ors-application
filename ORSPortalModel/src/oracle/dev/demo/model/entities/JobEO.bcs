@@ -1,0 +1,12 @@
+//Groovy Scripts for oracle.dev.demo.model.entities.JobEO
+
+package oracle.dev.demo.model.entities
+
+import oracle.jbo.script.annotation.ValidatorExpression;
+
+@ValidatorExpression(name="JobpostedonRule0", attributeName="Jobpostedon")
+def Jobpostedon_JobpostedonRule0_ValidationRuleScript_ValidationRule()
+{
+adf.currentDate
+}
+

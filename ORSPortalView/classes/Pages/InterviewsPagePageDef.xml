@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="InterviewsPagePageDef"
+                Package="Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InterviewProcessesVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl"
+              id="InterviewProcessesVOIterator"/>
+    <searchRegion Binds="InterviewProcessesVOIterator" Criteria="InterviewsByEmpIdAndCId"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InterviewProcessesVOQuery"/>
+    <iterator Binds="AdminInterviews1" RangeSize="25" DataControl="ORSPortalAppModuleDataControl"
+              id="AdminInterviews1Iterator"/>
+    <searchRegion Binds="AdminInterviews1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AdminInterviews1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InterviewProcessesVOIterator" id="InterviewProcessesVO">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.InterviewProcessesVO" Name="InterviewProcessesVO0">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Candidatename"/>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Employeeid"/>
+          <Item Value="Scheduledon"/>
+          <Item Value="Round"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InterviewProcessesVOIterator" id="InterviewProcessesVO1">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.InterviewProcessesVO" Name="InterviewProcessesVO10">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Candidatename"/>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Employeeid"/>
+          <Item Value="Scheduledon"/>
+          <Item Value="Round"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InterviewProcessesVOIterator" id="InterviewProcessesVO2">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.InterviewProcessesVO" Name="InterviewProcessesVO20">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Candidatename"/>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Employeeid"/>
+          <Item Value="Scheduledon"/>
+          <Item Value="Round"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AdminInterviews1Iterator" id="AdminInterviews1">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.AdminInterviews" Name="AdminInterviews10">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Candidatename"/>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Employeeid"/>
+          <Item Value="Scheduledon"/>
+          <Item Value="Round"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

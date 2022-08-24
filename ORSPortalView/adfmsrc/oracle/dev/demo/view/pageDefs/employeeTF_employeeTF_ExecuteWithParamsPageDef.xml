@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="employeeTF_employeeTF_ExecuteWithParamsPageDef" Package="oracle.dev.demo.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="InterviewProcessesVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl"
+              id="InterviewProcessesVOIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="InterviewProcessesVOIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="Cdate_id" NDType="java.lang.String"/>
+      <NamedData NDName="Emp_id" NDValue="#{sessionScope.Employeeid}" NDType="java.math.BigInteger"/>
+    </action>
+  </bindings>
+</pageDefinition>

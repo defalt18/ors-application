@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:resource type="javascript">
+      setTimeout(() => window.history.forward(), 0);
+      window.onunload = () => null;
+    </af:resource>
+    <af:document title="Applicant Login" id="d1">
+        <af:panelGridLayout id="pgl1">
+            <af:gridRow marginTop="0px" height="100%" marginBottom="0px" id="gr1">
+                <af:gridCell marginStart="0px" width="60%" marginEnd="0px" id="gc1" valign="stretch" halign="stretch">
+                    <af:image shortDesc="Login Page" id="i1" source="/images/homepage.jpeg"
+                              inlineStyle="object-fit: cover;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="0px" width="40%" marginEnd="0px" id="gc2" valign="stretch" halign="stretch">
+                    <af:form id="f1"
+                             inlineStyle="display: flex; align-items: center; flex-direction: column; justify-content: center; gap: 10px; background-color: #fff;">
+                        <h:outputLabel value="Applicant Login" id="ol1"
+                                       style="font-size:xx-large; font-weight:300; color:#2d70cd; margin: 20px 20px;"/>
+                        <af:inputText label="Username" id="it1" columns="30"
+                                      validator="#{backingBeanScope.LoginPageBean.usernameValidator}"
+                                      value="#{backingBeanScope.LoginPageBean.username}"/>
+                        <af:inputText label="Password" id="it2" columns="30" secret='true'
+                                      validator="#{backingBeanScope.LoginPageBean.passwordValidator}"
+                                      value="#{backingBeanScope.LoginPageBean.password}"/>
+                        <af:button text="Login" id="b1"
+                                   inlineStyle="width:20%; margin-top:20px; text-align:center; background-color:transparent; color:Black; border-radius:8px 8px 8px 8px / 8px 8px 8px 8px ; border-width:1px;"
+                                   action="#{backingBeanScope.LoginPageBean.onLoginClick}"/>
+                        <af:link text="New Candidate? Sign up" id="l1" inlineStyle="margin-top: 10px;"
+                                 action="goToSignUp"/>
+                    </af:form>
+                </af:gridCell>
+            </af:gridRow>
+        </af:panelGridLayout>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:LoginPageBean-->
+</f:view>

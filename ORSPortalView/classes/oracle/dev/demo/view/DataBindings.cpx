@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="oracle.dev.demo.view" ClientType="Generic">
+  <pageMap>
+    <page path="/Pages/InterviewsPage.jsf" usageId="oracle_dev_demo_view_InterviewsPagePageDef"/>
+    <page path="/WEB-INF/candidateTF.xml#candidateTF@ExecuteWithParams"
+          usageId="oracle_dev_demo_view_candidateTF_candidateTF_ExecuteWithParamsPageDef"/>
+    <page path="/Pages/ApplicationsPage.jsf" usageId="oracle_dev_demo_view_ApplicationsPagePageDef"/>
+    <page path="/WEB-INF/candidateTF.xml#candidateTF@ExecuteWithParams1"
+          usageId="oracle_dev_demo_view_candidateTF_candidateTF_ExecuteWithParams1PageDef"/>
+    <page path="/WEB-INF/employeeTF.xml#employeeTF@ExecuteWithParams"
+          usageId="oracle_dev_demo_view_employeeTF_employeeTF_ExecuteWithParamsPageDef"/>
+    <page path="/Pages/CandidatesPage.jsf" usageId="oracle_dev_demo_view_CandidatesPagePageDef"/>
+    <page path="/Pages/EmployeesPage.jsf" usageId="oracle_dev_demo_view_EmployeesPagePageDef"/>
+    <page path="/WEB-INF/employeeTF.xml#employeeTF@ExecuteWithParams1"
+          usageId="oracle_dev_demo_view_employeeTF_employeeTF_ExecuteWithParams1PageDef"/>
+    <page path="/Pages/UserDashboard.jsf" usageId="oracle_dev_demo_view_UserDashboardPageDef"/>
+    <page path="/Pages/JobPortal.jsf" usageId="oracle_dev_demo_view_JobPortalPageDef"/>
+    <page path="/Pages/Questionnaire.jsf" usageId="oracle_dev_demo_view_QuestionnairePageDef"/>
+    <page path="/WEB-INF/LandingTF.xml#LandingTF@ExecuteWithParams"
+          usageId="oracle_dev_demo_view_LandingTF_LandingTF_ExecuteWithParamsPageDef"/>
+    <page path="/Pages/JobsPage.jsf" usageId="oracle_dev_demo_view_AddJobsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="oracle_dev_demo_view_InterviewsPagePageDef" path="Pages.InterviewsPagePageDef"/>
+    <page id="oracle_dev_demo_view_candidateTF_candidateTF_ExecuteWithParamsPageDef"
+          path="oracle.dev.demo.view.pageDefs.candidateTF_candidateTF_ExecuteWithParamsPageDef"/>
+    <page id="oracle_dev_demo_view_ApplicationsPagePageDef" path="Pages.ApplicationsPagePageDef"/>
+    <page id="oracle_dev_demo_view_candidateTF_candidateTF_ExecuteWithParams1PageDef"
+          path="oracle.dev.demo.view.pageDefs.candidateTF_candidateTF_ExecuteWithParams1PageDef"/>
+    <page id="oracle_dev_demo_view_employeeTF_employeeTF_ExecuteWithParamsPageDef"
+          path="oracle.dev.demo.view.pageDefs.employeeTF_employeeTF_ExecuteWithParamsPageDef"/>
+    <page id="oracle_dev_demo_view_CandidatesPagePageDef" path="Pages.CandidatesPagePageDef"/>
+    <page id="oracle_dev_demo_view_EmployeesPagePageDef" path="Pages.EmployeesPagePageDef"/>
+    <page id="oracle_dev_demo_view_employeeTF_employeeTF_ExecuteWithParams1PageDef"
+          path="oracle.dev.demo.view.pageDefs.employeeTF_employeeTF_ExecuteWithParams1PageDef"/>
+    <page id="oracle_dev_demo_view_UserDashboardPageDef" path="Pages.UserDashboardPageDef"/>
+    <page id="oracle_dev_demo_view_JobPortalPageDef" path="Pages.JobPortalPageDef"/>
+    <page id="oracle_dev_demo_view_QuestionnairePageDef" path="Pages.QuestionnairePageDef"/>
+    <page id="oracle_dev_demo_view_LandingTF_LandingTF_ExecuteWithParamsPageDef"
+          path="oracle.dev.demo.view.pageDefs.LandingTF_LandingTF_ExecuteWithParamsPageDef"/>
+    <page id="oracle_dev_demo_view_AddJobsPageDef" path="Pages.AddJobsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ORSPortalAppModuleDataControl" Package="oracle.dev.demo.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ORSPortalAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

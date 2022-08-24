@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="EmployeesPagePageDef"
+                Package="Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CredsVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl" id="CredsVOIterator"/>
+    <searchRegion Binds="CredsVOIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CredsVOQuery"/>
+    <iterator Binds="EmployeesVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl" id="EmployeesVOIterator"/>
+    <searchRegion Binds="EmployeesVOIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EmployeesVOQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CredsVOIterator" id="CredsVO">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.CredsVO" Name="CredsVO0">
+        <AttrNames>
+          <Item Value="Username"/>
+          <Item Value="Password"/>
+          <Item Value="UserType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="EmployeesVOIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="EmployeesVOIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ORSPortalAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ORSPortalAppModuleDataControl"/>
+    <action IterBinding="CredsVOIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="CredsVOIterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="EmployeesVOIterator" id="Rounds">
+      <AttrNames>
+        <Item Value="Rounds"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="EmployeesVOIterator" id="EmployeesVO1">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.EmployeesVO" Name="EmployeesVO10">
+        <AttrNames>
+          <Item Value="Employeeid"/>
+          <Item Value="Contact"/>
+          <Item Value="Firstname"/>
+          <Item Value="Lastname"/>
+          <Item Value="Jobname"/>
+          <Item Value="Experiencelevel"/>
+          <Item Value="Rounds"/>
+          <Item Value="Status"/>
+          <Item Value="Username"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

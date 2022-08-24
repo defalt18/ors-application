@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="JobPortalPageDef"
+                Package="Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="JobsVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl" id="JobsVOIterator"/>
+    <searchRegion Criteria="FilterJobsByAtttributes" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="JobsVOIterator" id="FilterJobsByAtttributesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="JobsVOIterator" id="JobsVO">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.JobsVO" Name="JobsVO0">
+        <AttrNames>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Experiencelevel"/>
+          <Item Value="Noofvacancies"/>
+          <Item Value="Skillset"/>
+          <Item Value="Jobpostedon"/>
+          <Item Value="Deadline"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="JobsVOIterator" id="Jobname">
+      <AttrNames>
+        <Item Value="Jobname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Experiencelevel">
+      <AttrNames>
+        <Item Value="Experiencelevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Noofvacancies">
+      <AttrNames>
+        <Item Value="Noofvacancies"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Skillset">
+      <AttrNames>
+        <Item Value="Skillset"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Jobpostedon">
+      <AttrNames>
+        <Item Value="Jobpostedon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Deadline">
+      <AttrNames>
+        <Item Value="Deadline"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Jobdesc">
+      <AttrNames>
+        <Item Value="Jobdesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsVOIterator" id="Jobid">
+      <AttrNames>
+        <Item Value="Jobid"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

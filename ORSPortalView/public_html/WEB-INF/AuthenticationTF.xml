@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="AuthenticationTF">
+    <default-activity>LoginPage</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="LoginPage">
+      <page>/Pages/LoginPage.jsf</page>
+    </view>
+    <view id="SignUpPage">
+      <page>/Pages/SignUpPage.jsf</page>
+    </view>
+    <task-flow-call id="UserTF">
+      <task-flow-reference>
+        <document>/WEB-INF/UserTF.xml</document>
+        <id>UserTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-return id="Back">
+      <outcome>
+        <name>Back</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>goToLogin</from-outcome>
+        <to-activity-id>LoginPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>goToSignUp</from-outcome>
+        <to-activity-id>SignUpPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>Back</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>goToDashboard</from-outcome>
+        <to-activity-id>UserTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>AuthRouter</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>goToUserProfile</from-outcome>
+        <to-activity-id>UserTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>backToPortal</from-outcome>
+        <to-activity-id>LandingTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>UserTF</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>Back</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

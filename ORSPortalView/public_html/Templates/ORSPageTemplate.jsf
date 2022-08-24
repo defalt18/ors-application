@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>ORSPageTemplate</afc:display-name>
+            <afc:facet>
+                <afc:description>App Body</afc:description>
+                <afc:facet-name>body</afc:facet-name>
+            </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+    <af:resource type="javascript">
+        setTimeout(() => window.history.forward(), 0);
+        window.onunload = () => null;
+    </af:resource>
+    <af:panelSplitter orientation="vertical" splitterPosition="70" id="pt_ps1" disabled="true" dimensionsFrom="parent">
+        <f:facet name="first">
+            <af:panelGridLayout id="pt_pgl1" inlineStyle="font-size:x-large; background-color:InfoBackground;">
+                <af:gridRow height="100%" id="pt_gr1" marginTop="5px">
+                    <af:gridCell marginStart="5px" valign="stretch" width="15%" id="pt_gc1">
+                        <af:image id="pt_i1" source="/images/logo_new.png" shortDesc="toolbar logo"
+                                  inlineStyle="object-fit: contain; height: auto; width: 130px;"/>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="pt_gc4" valign="stretch">
+                        <af:menuBar id="pt_mb1" inlineStyle="font-size:x-large; margin:10px 0px;">
+                            <af:commandMenuItem text="Dashboard" id="pt_cmi2"
+                                                inlineStyle="font-size:x-large; font-weight: 300;"
+                                                rendered="#{sessionScope.UserType != null}" action="goToDashboard"/>
+                            <af:spacer id="pt_s2" width="10" rendered="#{sessionScope.UserType != null}"/>
+                            <af:commandMenuItem text="Candidates" id="pt_cmi4"
+                                                inlineStyle="font-size:x-large; font-weight: 300;"
+                                                rendered="#{sessionScope.UserType == '2'}" action="goToCandidates"/>
+                            <af:spacer id="pt_s3" width="10" rendered="#{sessionScope.UserType == '2'}"/>
+                            <af:commandMenuItem text="Jobs" id="pt_cmi19"
+                                                inlineStyle="font-size:x-large; font-weight: 300;"
+                                                rendered="#{sessionScope.UserType == '2'}" action="goToJobs"/>
+                            <af:spacer id="pt_s13" width="10" rendered="#{sessionScope.UserType == '2'}"/>
+                            <af:commandMenuItem text="Job Portal" id="pt_cmi192"
+                                                inlineStyle="font-size:x-large; font-weight: 300;"
+                                                rendered="#{sessionScope.UserType != null}" action="goToPortal"/>
+                            <af:spacer id="pt_s135" width="10" rendered="#{sessionScope.UserType !=null}"/>
+                            <af:commandMenuItem text="Employees" id="pt_cmi40"
+                                                inlineStyle="font-size:x-large; font-weight: 300;"
+                                                rendered="#{sessionScope.UserType == '2'}" action="goToEmployees"/>
+                            <af:spacer id="pt_s4" width="10" rendered="#{sessionScope.UserType == '2'}"/>
+                            <af:commandMenuItem text="Applications" id="pt_cmi8"
+                                                inlineStyle="font-size:x-large; font-weight: 300;"
+                                                rendered="#{sessionScope.UserType == '0' || sessionScope.UserType == '2'}"
+                                                action="goToApplications"/>
+                            <af:spacer id="pt_s6" width="10"
+                                       rendered="#{sessionScope.UserType == '0' || sessionScope.UserType == '2'}"/>
+                            <af:commandMenuItem text="Interviews" id="pt_cmi5"
+                                                inlineStyle="font-size:x-large; font-weight: 300;" action="goToInterviews"
+                                                rendered='#{sessionScope.UserType != null}'/>
+                        </af:menuBar>
+                    </af:gridCell>
+                    <af:gridCell width="15%" id="pt_gc3" halign="stretch" valign="stretch">
+                        <af:panelGroupLayout id="pt_pgl2" layout="horizontal" halign="right" valign="middle"
+                                             rendered="#{sessionScope.UserType != null}"
+                                             inlineStyle="margin: 0px 10px;">
+                            <af:image id="pt_i2" source="/images/user.png" shortDesc="toolbar logo"
+                                      inlineStyle="object-fit: contain; height: 40px; width: 40px; margin: 10px 0px;"/>
+                            <af:spacer id="pt_s8" width="10"/>
+                            <af:outputText value="#{sessionScope.Username}" id="ot3"
+                                           inlineStyle="font-size: large; font-weight: 300;"/>
+                            <af:spacer id="pt_s16" width="10"/>
+                            <af:button text="Logout" id="pt_cm3"
+                                       action="#{backingBeanScope.TemplateManagerBean.onLogout}"/>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:decorativeBox theme="dark" id="pt_db2" topHeight="0px">
+                <f:facet name="center">
+                    <af:decorativeBox theme="medium" id="pt_db1" topHeight="0px">
+                        <f:facet name="center">
+                            <af:facetRef facetName="body"/>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+            </af:decorativeBox>
+        </f:facet>
+    </af:panelSplitter>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:TemplateManagerBean-->
+</af:pageTemplateDef>

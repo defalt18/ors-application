@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="LandingTF_LandingTF_ExecuteWithParamsPageDef" Package="oracle.dev.demo.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="QuestionsVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl" id="QuestionsVOIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="QuestionsVOIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="Job_ID" NDValue="#{sessionScope.Jobid}" NDType="java.math.BigInteger"/>
+    </action>
+  </bindings>
+</pageDefinition>

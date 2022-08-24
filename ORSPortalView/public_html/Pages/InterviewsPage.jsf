@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="InterviewsPage.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:resource type="javascript">
+          setTimeout(() =  > window.history.forward(), 0);
+          window.onunload = () =  > null;
+        </af:resource>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/Templates/ORSPageTemplate.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow rendered="#{sessionScope.UserType == '1'}" marginTop="0px" height="auto" id="gr1">
+                            <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="gc1">
+                                <af:selectOneChoice label="Set Availability" id="smc1" autoSubmit="true"
+                                                    value="#{sessionScope.Status}"
+                                                    validator="#{backingBeanScope.InterviewsPageBean.smc1_validator}"
+                                                    valueChangeListener="#{backingBeanScope.InterviewsPageBean.onChangeAvailability}">
+                                    <af:selectItem label="Available" value="Available" id="si1"/>
+                                    <af:selectItem label="Not Available" value="Not Available" id="si2"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="10px" height="auto" marginBottom="0px" id="gr2">
+                            <af:gridCell marginStart="0px" width="100%" marginEnd="0px" id="gc2" halign="stretch"
+                                         valign="stretch">
+                                <af:panelCollection id="pc1" inlineStyle="width: 100%;">
+                                    <af:table value="#{bindings.AdminInterviews1.collectionModel}" var="row"
+                                              rendered="#{sessionScope.UserType == 2}"
+                                              rows="#{bindings.AdminInterviews1.rangeSize}"
+                                              emptyText="#{bindings.AdminInterviews1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.AdminInterviews1.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.AdminInterviews1.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.AdminInterviews1.rangeSize}"
+                                              filterModel="#{bindings.AdminInterviews1Query.queryDescriptor}"
+                                              filterVisible="true"
+                                              queryListener="#{bindings.AdminInterviews1Query.processQuery}"
+                                              varStatus="vs" id="t2" columnStretching="column:c11">
+                                        <af:column sortProperty="#{bindings.AdminInterviews1.hints.Candidateid.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.AdminInterviews1.hints.Candidateid.label}"
+                                                   id="c8">
+                                            <af:outputText value="#{row.Candidateid}"
+                                                           shortDesc="#{bindings.AdminInterviews1.hints.Candidateid.tooltip}"
+                                                           id="ot10"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.AdminInterviews1.hints.Candidatename.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.AdminInterviews1.hints.Candidatename.label}"
+                                                   id="c9">
+                                            <af:outputText value="#{row.Candidatename}"
+                                                           shortDesc="#{bindings.AdminInterviews1.hints.Candidatename.tooltip}"
+                                                           id="ot11"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.AdminInterviews1.hints.Jobid.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.AdminInterviews1.hints.Jobid.label}" id="c10">
+                                            <af:outputText value="#{row.Jobid}"
+                                                           shortDesc="#{bindings.AdminInterviews1.hints.Jobid.tooltip}"
+                                                           id="ot12">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.AdminInterviews1.hints.Jobid.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.AdminInterviews1.hints.Jobname.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.AdminInterviews1.hints.Jobname.label}"
+                                                   id="c11">
+                                            <af:outputText value="#{row.Jobname}"
+                                                           shortDesc="#{bindings.AdminInterviews1.hints.Jobname.tooltip}"
+                                                           id="ot13"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.AdminInterviews1.hints.Employeeid.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.AdminInterviews1.hints.Employeeid.label}"
+                                                   id="c12">
+                                            <af:outputText value="#{row.Employeeid}"
+                                                           shortDesc="#{bindings.AdminInterviews1.hints.Employeeid.tooltip}"
+                                                           id="ot14">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.AdminInterviews1.hints.Employeeid.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.AdminInterviews1.hints.Scheduledon.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.AdminInterviews1.hints.Scheduledon.label}"
+                                                   id="c13">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.AdminInterviews1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Scheduledon.value}"
+                                                              id="id2">
+                                                    <af:convertDateTime pattern="#{bindings.AdminInterviews1.hints.Scheduledon.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:outputText value="#{row.Scheduledon}"
+                                                           shortDesc="#{bindings.AdminInterviews1.hints.Scheduledon.tooltip}"
+                                                           id="ot15">
+                                                <af:convertDateTime pattern="#{bindings.AdminInterviews1.hints.Scheduledon.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.AdminInterviews1.hints.Round.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.AdminInterviews1.hints.Round.label}" id="c14">
+                                            <af:outputText value="#{row.Round}"
+                                                           shortDesc="#{bindings.AdminInterviews1.hints.Round.tooltip}"
+                                                           id="ot16"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.AdminInterviews1.hints.Status.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.AdminInterviews1.hints.Status.label}"
+                                                   id="c15">
+                                            <af:outputText value="#{row.Status}"
+                                                           shortDesc="#{bindings.AdminInterviews1.hints.Status.tooltip}"
+                                                           id="ot17"/>
+                                        </af:column>
+                                    </af:table>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                        <af:panelWindow id="pw1" inlineStyle="width: 400px">
+                                            <af:panelGridLayout id="pgl2">
+                                                <af:gridRow marginTop="10px" height="40%" id="gr3">
+                                                    <af:gridCell marginStart="10px" width="100%" marginEnd="10px"
+                                                                 id="gc3">
+                                                        <af:selectOneChoice label="Change Status"
+                                                                            valueChangeListener="#{backingBeanScope.InterviewsPageBean.onChangeCandidateStatus}"
+                                                                            id="smc2">
+                                                            <af:selectItem label="Rejected" value="Rejected" id="si6"/>
+                                                            <af:selectItem label="In Progress" value="In progress"
+                                                                           id="si3"/>
+                                                            <af:selectItem label="Completed" value="Completed"
+                                                                           id="si4"/>
+                                                        </af:selectOneChoice>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow marginTop="20px" height="40%" id="gr4">
+                                                    <af:gridCell marginStart="10px" width="100%" marginEnd="10px"
+                                                                 id="gc4" halign="stretch">
+                                                        <af:inputText label="Feedback" id="it14" columns="40"
+                                                                      value="#{backingBeanScope.InterviewsPageBean.feedback}"/>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow marginTop="20px" height="20%" marginBottom="10px" id="gr5">
+                                                    <af:gridCell marginStart="10px" width="100%" marginEnd="10px"
+                                                                 id="gc5">
+                                                        <af:button text="Update" id="b2"
+                                                                   action="#{backingBeanScope.InterviewsPageBean.onUpdateStatus}"/>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                            </af:panelGridLayout>
+                                        </af:panelWindow>
+                                    </af:popup>
+                                    <af:table value="#{bindings.InterviewProcessesVO2.collectionModel}" var="row"
+                                              rows="#{bindings.InterviewProcessesVO2.rangeSize}"
+                                              emptyText="#{bindings.InterviewProcessesVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              rendered="#{sessionScope.UserType != 2}"
+                                              selectedRowKeys="#{bindings.InterviewProcessesVO2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.InterviewProcessesVO2.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.InterviewProcessesVO2.rangeSize}"
+                                              filterModel="#{bindings.InterviewProcessesVOQuery.queryDescriptor}"
+                                              filterVisible="true"
+                                              queryListener="#{bindings.InterviewProcessesVOQuery.processQuery}"
+                                              varStatus="vs" id="t1" columnStretching="column:c4">
+                                        <af:column sortProperty="#{bindings.InterviewProcessesVO2.hints.Candidateid.name}"
+                                                   filterable="true" sortable="true" headerText="Candidate Id" id="c1">
+                                            <af:outputText value="#{row.Candidateid}"
+                                                           shortDesc="#{bindings.InterviewProcessesVO2.hints.Candidateid.tooltip}"
+                                                           id="ot1"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessesVO2.hints.Candidatename.name}"
+                                                   filterable="true" sortable="true" headerText="Candidate Name"
+                                                   id="c2">
+                                            <af:outputText value="#{row.Candidatename}"
+                                                           shortDesc="#{bindings.InterviewProcessesVO2.hints.Candidatename.tooltip}"
+                                                           id="ot2"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessesVO2.hints.Jobid.name}"
+                                                   filterable="true" sortable="true" headerText="Job Id" id="c3">
+                                            <af:outputText value="#{row.Jobid}"
+                                                           shortDesc="#{bindings.InterviewProcessesVO2.hints.Jobid.tooltip}"
+                                                           id="ot4">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.InterviewProcessesVO2.hints.Jobid.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessesVO2.hints.Jobname.name}"
+                                                   filterable="true" sortable="true" headerText="Job Name" id="c4">
+                                            <af:outputText value="#{row.Jobname}"
+                                                           shortDesc="#{bindings.InterviewProcessesVO2.hints.Jobname.tooltip}"
+                                                           id="ot5"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessesVO2.hints.Employeeid.name}"
+                                                   filterable="true" sortable="true" headerText="Employee Id" id="c5">
+                                            <af:outputText value="#{row.Employeeid}"
+                                                           shortDesc="#{bindings.InterviewProcessesVO2.hints.Employeeid.tooltip}"
+                                                           id="ot6">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.InterviewProcessesVO2.hints.Employeeid.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessesVO2.hints.Scheduledon.name}"
+                                                   filterable="true" sortable="true" headerText="Schduled on" id="c6">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.InterviewProcessesVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Scheduledon.value}"
+                                                              id="id1">
+                                                    <af:convertDateTime pattern="#{bindings.InterviewProcessesVO2.hints.Scheduledon.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:outputText value="#{row.Scheduledon}"
+                                                           shortDesc="#{bindings.InterviewProcessesVO2.hints.Scheduledon.tooltip}"
+                                                           id="ot7">
+                                                <af:convertDateTime pattern="#{bindings.InterviewProcessesVO2.hints.Scheduledon.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessesVO2.hints.Round.name}"
+                                                   filterable="true" sortable="true" headerText="Round" id="c7">
+                                            <af:outputText value="#{row.Round}"
+                                                           shortDesc="#{bindings.InterviewProcessesVO2.hints.Round.tooltip}"
+                                                           id="ot8"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.InterviewProcessesVO2.hints.Status.name}"
+                                                   filterable="true" sortable="true" headerText="Status" id="c16">
+                                            <af:outputText value="#{row.Status}"
+                                                           shortDesc="#{bindings.InterviewProcessesVO2.hints.Status.tooltip}"
+                                                           id="ot9"/>
+                                        </af:column>
+                                        <af:column headerText="Requests" id="c21" filterable="true" sortable="true"
+                                                   rendered='#{sessionScope.UserType == 0}'>
+                                            <af:button id="b29" text="Request Update" disabled="#{row.bindings.Status.inputValue != 'Pending'}"
+                                                       action="#{backingBeanScope.InterviewsPageBean.onRequestInterview(row.bindings.Jobid.inputValue)}"/>
+                                        </af:column>
+                                        <af:column headerText="Change Status" id="c20"
+                                                   rendered="#{sessionScope.UserType == '1'}">
+                                            <af:button text="Mark as Completed" id="b1"
+                                                       disabled="#{row.bindings.Status.inputValue == 'Completed' || row.bindings.Status.inputValue == 'Rejected'}"
+                                                       action="#{backingBeanScope.InterviewsPageBean.onClickChangeStatus(row.bindings.Candidateid.inputValue,row.bindings.Jobid.inputValue,row.bindings.Round.inputValue)}">
+                                                <af:showPopupBehavior popupId="::p1" triggerType="click"/>
+                                            </af:button>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:InterviewsPageBean-->
+</f:view>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__1">
+    <managed-bean-name>TemplateManagerBean</managed-bean-name>
+    <managed-bean-class>oracle.dev.demo.view.TemplateManager</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>LoginPageBean</managed-bean-name>
+    <managed-bean-class>oracle.dev.demo.view.LoginFlow</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>SignUpPageBean</managed-bean-name>
+    <managed-bean-class>oracle.dev.demo.view.SignUpFlow</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

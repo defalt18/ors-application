@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="AddJobsPageDef" Package="Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="JobsVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl" id="JobsVOIterator"/>
+    <searchRegion Binds="JobsVOIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="JobsVOQuery"/>
+    <iterator Binds="AddJobsVO1" RangeSize="25" DataControl="ORSPortalAppModuleDataControl" id="AddJobsVO1Iterator"/>
+    <searchRegion Binds="AddJobsVO1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="AddJobsVO1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="JobsVOIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="JobsVOIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ORSPortalAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ORSPortalAppModuleDataControl"/>
+    <tree IterBinding="JobsVOIterator" id="JobsVO">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.JobsVO" Name="JobsVO0">
+        <AttrNames>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Experiencelevel"/>
+          <Item Value="Noofvacancies"/>
+          <Item Value="Skillset"/>
+          <Item Value="Jobpostedon"/>
+          <Item Value="Deadline"/>
+          <Item Value="Noofcandidatesapplied"/>
+          <Item Value="Jobdesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AddJobsVO1Iterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="AddJobsVO1Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="AddJobsVO1Iterator" id="AddJobsVO1">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.AddJobsVO" Name="AddJobsVO10">
+        <AttrNames>
+          <Item Value="Jobid"/>
+          <Item Value="Jobname"/>
+          <Item Value="Experiencelevel"/>
+          <Item Value="Noofvacancies"/>
+          <Item Value="Skillset"/>
+          <Item Value="Jobpostedon"/>
+          <Item Value="Deadline"/>
+          <Item Value="Noofcandidatesapplied"/>
+          <Item Value="Jobdesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

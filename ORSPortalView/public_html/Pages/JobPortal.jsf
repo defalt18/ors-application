@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="JobPortal.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:resource type="javascript">
+          setTimeout(() => window.history.forward(), 0);
+          window.onunload = () => null;
+          function printDiv(title) {
+              window.print();
+        }
+        </af:resource>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/Templates/PortalTemplate.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:panelGroupLayout layout="scroll" id="pgl2" halign="left" inlineStyle="width: 100%">
+                        <af:panelHeader text="Job Search" id="ph1">
+                            <af:query id="qryId1" headerText="Search" disclosed="true"
+                                      value="#{bindings.FilterJobsByAtttributesQuery.queryDescriptor}"
+                                      model="#{bindings.FilterJobsByAtttributesQuery.queryModel}"
+                                      queryListener="#{bindings.FilterJobsByAtttributesQuery.processQuery}"
+                                      queryOperationListener="#{bindings.FilterJobsByAtttributesQuery.processQueryOperation}"
+                                      resultComponentId="::resId1"/>
+                        </af:panelHeader>
+                        <af:button text="Print Jobs" id="b4" action="#{backingBeanScope.JobPortalFlowBean.onClickPrint}"
+                                   rendered="#{adfFacesContext.outputMode != 'printable' and sessionScope.UserType == '2'}"
+                                   inlineStyle="margin-bottom: 10px;" />
+                        <af:table value="#{bindings.JobsVO.collectionModel}" var="row"
+                                  rows="#{bindings.JobsVO.rangeSize}"
+                                  emptyText="#{bindings.JobsVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.JobsVO.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.JobsVO.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.JobsVO.rangeSize}"
+                                  filterModel="#{bindings.FilterJobsByAtttributesQuery.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.FilterJobsByAtttributesQuery.processQuery}" varStatus="vs"
+                                  id="resId1" columnStretching="column:resId1c5" scrollPolicy="scroll">
+                            <af:column sortProperty="#{bindings.JobsVO.hints.Jobid.name}" filterable="true"
+                                       sortable="true" headerText="Job Id" id="resId1c1">
+                                <af:outputText value="#{row.Jobid}" shortDesc="#{bindings.JobsVO.hints.Jobid.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.JobsVO.hints.Jobid.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.JobsVO.hints.Jobname.name}" filterable="true"
+                                       sortable="true" headerText="Job Name" id="resId1c2">
+                                <af:outputText value="#{row.Jobname}"
+                                               shortDesc="#{bindings.JobsVO.hints.Jobname.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.JobsVO.hints.Experiencelevel.name}" filterable="true"
+                                       sortable="true" headerText="Experience Level" id="resId1c3">
+                                <af:outputText value="#{row.Experiencelevel}"
+                                               shortDesc="#{bindings.JobsVO.hints.Experiencelevel.tooltip}" id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.JobsVO.hints.Noofvacancies.name}" filterable="true"
+                                       sortable="true" headerText="Vacancies" id="resId1c4">
+                                <af:outputText value="#{row.Noofvacancies}"
+                                               shortDesc="#{bindings.JobsVO.hints.Noofvacancies.tooltip}" id="ot5">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.JobsVO.hints.Noofvacancies.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.JobsVO.hints.Skillset.name}" filterable="true"
+                                       sortable="true" headerText="Skillset" id="resId1c5">
+                                <af:outputText value="#{row.Skillset}"
+                                               shortDesc="#{bindings.JobsVO.hints.Skillset.tooltip}" id="ot6"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.JobsVO.hints.Jobpostedon.name}" filterable="true"
+                                       sortable="true" headerText="Posted on" id="resId1c6">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.FilterJobsByAtttributesQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Jobpostedon.value}"
+                                                  id="id1">
+                                        <af:convertDateTime pattern="#{bindings.JobsVO.hints.Jobpostedon.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.Jobpostedon}"
+                                               shortDesc="#{bindings.JobsVO.hints.Jobpostedon.tooltip}" id="ot7">
+                                    <af:convertDateTime pattern="#{bindings.JobsVO.hints.Jobpostedon.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.JobsVO.hints.Deadline.name}" filterable="true"
+                                       sortable="true" headerText="Deadline" id="resId1c7">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.FilterJobsByAtttributesQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Deadline.value}"
+                                                  id="id2">
+                                        <af:convertDateTime pattern="#{bindings.JobsVO.hints.Deadline.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.Deadline}"
+                                               shortDesc="#{bindings.JobsVO.hints.Deadline.tooltip}" id="ot8">
+                                    <af:convertDateTime pattern="#{bindings.JobsVO.hints.Deadline.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column id="resId1c8" rendered="#{adfFacesContext.outputMode != 'printable'}"
+                                       headerText="Action">
+                                <af:button text="Check Job Details" id="b1"
+                                           action="#{backingBeanScope.JobPortalFlowBean.onApply(row.Jobid)}">
+                                    <af:showPopupBehavior popupId="::p1" triggerType="click"/>
+                                </af:button>
+                            </af:column>
+                        </af:table>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="resId1:b1">
+                            <af:panelWindow id="pw1">
+                                <af:panelFormLayout id="pfl1">
+                                    <af:panelLabelAndMessage label="Job Role" id="plam1">
+                                        <af:outputText value="#{bindings.Jobname.inputValue}"
+                                                       shortDesc="#{bindings.Jobname.hints.tooltip}" id="ot9"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Experience Level Required" id="plam2">
+                                        <af:outputText value="#{bindings.Experiencelevel.inputValue}"
+                                                       shortDesc="#{bindings.Experiencelevel.hints.tooltip}" id="ot10"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Vacancies" id="plam3">
+                                        <af:outputText value="#{bindings.Noofvacancies.inputValue}"
+                                                       shortDesc="#{bindings.Noofvacancies.hints.tooltip}" id="ot11">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.Noofvacancies.format}"/>
+                                        </af:outputText>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Skillset" id="plam4">
+                                        <af:outputText value="#{bindings.Skillset.inputValue}"
+                                                       shortDesc="#{bindings.Skillset.hints.tooltip}" id="ot12"/>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Posted on" id="plam5">
+                                        <af:outputText value="#{bindings.Jobpostedon.inputValue}"
+                                                       shortDesc="#{bindings.Jobpostedon.hints.tooltip}" id="ot13">
+                                            <af:convertDateTime pattern="#{bindings.Jobpostedon.format}"/>
+                                        </af:outputText>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Deadline" id="plam6">
+                                        <af:outputText value="#{bindings.Deadline.inputValue}"
+                                                       shortDesc="#{bindings.Deadline.hints.tooltip}" id="ot14">
+                                            <af:convertDateTime pattern="#{bindings.Deadline.format}"/>
+                                        </af:outputText>
+                                    </af:panelLabelAndMessage>
+                                    <af:panelLabelAndMessage label="Job Description" id="plam7">
+                                        <af:outputText value="#{bindings.Jobdesc.inputValue}"
+                                                       shortDesc="#{bindings.Jobdesc.hints.tooltip}" id="ot15"/>
+                                    </af:panelLabelAndMessage>
+                                </af:panelFormLayout>
+                                <af:button partialSubmit="true" partialTriggers="resId1:b1" id="b2"
+                                           rendered="#{sessionScope.UserType == '0' || sessionScope.UserType == null}"
+                                           inlineStyle="margin-right: 10px;"
+                                           text="#{backingBeanScope.JobPortalFlowBean.appliedFlag ? 'Application Submitted' : 'Submit Application'}"
+                                           disabled="#{backingBeanScope.JobPortalFlowBean.appliedFlag}"
+                                           action="#{backingBeanScope.JobPortalFlowBean.onSubmit(bindings.Jobid.inputValue)}"/>
+
+                            </af:panelWindow>
+                        </af:popup>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:JobPortalFlowBean-->
+</f:view>

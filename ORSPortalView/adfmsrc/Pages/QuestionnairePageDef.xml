@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="QuestionnairePageDef"
+                Package="Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="QuestionsVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl" id="QuestionsVOIterator"/>
+    <searchRegion Binds="QuestionsVOIterator" Criteria="QuestionsByJobIDCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="QuestionsVOQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="QuestionsVOIterator" id="QuestionsVO">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.QuestionsVO" Name="QuestionsVO0">
+        <AttrNames>
+          <Item Value="Questionlevel"/>
+          <Item Value="Choices"/>
+          <Item Value="Correct_Response"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="QuestionsVOIterator" id="QuestionsVO1">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.QuestionsVO" Name="QuestionsVO10">
+        <AttrNames>
+          <Item Value="Questionlevel"/>
+          <Item Value="Choices"/>
+          <Item Value="Correct_Response"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="QuestionsVOIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="Job_ID" NDValue="#{sessionScope.Jobid}" NDType="java.math.BigInteger"/>
+    </action>
+  </bindings>
+</pageDefinition>

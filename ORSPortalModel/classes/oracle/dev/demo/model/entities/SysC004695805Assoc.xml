@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC004695805Assoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="CredEO"
+    Cardinality="1"
+    Source="true"
+    Owner="oracle.dev.demo.model.entities.CredEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CredEO"/>
+      <Attr Name="_foreignKey" Value="oracle.dev.demo.model.entities.CredEO.SysC004695719"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.dev.demo.model.entities.CredEO.Username"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="CandidateEO"
+    Cardinality="-1"
+    Owner="oracle.dev.demo.model.entities.CandidateEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CandidateEO"/>
+      <Attr Name="_foreignKey" Value="oracle.dev.demo.model.entities.CandidateEO.SysC004695805"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.dev.demo.model.entities.CandidateEO.Username"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

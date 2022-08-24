@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE OperationDefinitions SYSTEM "jbo_03_01.dtd">
+<OperationDefinitions xmlns="http://xmlns.oracle.com/bc4j" Name="JobsVOOperations">
+  <ExpressionCodeSource
+    Name="JobsVO"
+    Type="Static"
+    Content-Type="application/x-adf-groovy"
+    URI="oracle/dev/demo/model/views/JobsVO.bcs"/>
+</OperationDefinitions>

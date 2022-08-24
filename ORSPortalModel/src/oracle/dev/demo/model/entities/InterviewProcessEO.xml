@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InterviewProcessEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ORS_INTERVIEW_PROCESS"
+  AliasName="InterviewProcessEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Candidateid"
+    IsNotNull="true"
+    Precision="36"
+    ColumnName="CANDIDATEID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORS_INTERVIEW_PROCESS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="36"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Candidatename"
+    IsNotNull="true"
+    Precision="38"
+    ColumnName="CANDIDATENAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORS_INTERVIEW_PROCESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="38"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Jobid"
+    IsNotNull="true"
+    Precision="36"
+    Scale="0"
+    ColumnName="JOBID"
+    SQLType="NUMERIC"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    TableName="ORS_INTERVIEW_PROCESS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Jobname"
+    IsNotNull="true"
+    Precision="40"
+    ColumnName="JOBNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORS_INTERVIEW_PROCESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Employeeid"
+    IsNotNull="true"
+    Precision="36"
+    Scale="0"
+    ColumnName="EMPLOYEEID"
+    SQLType="NUMERIC"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    TableName="ORS_INTERVIEW_PROCESS"/>
+  <Attribute
+    Name="Scheduledon"
+    ColumnName="SCHEDULEDON"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="ORS_INTERVIEW_PROCESS"/>
+  <Attribute
+    Name="Round"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="ROUND"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORS_INTERVIEW_PROCESS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Status"
+    Precision="30"
+    ColumnName="STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORS_INTERVIEW_PROCESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Unnamed1"
+    Precision="100"
+    ColumnName="UNNAMED1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORS_INTERVIEW_PROCESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Unnamed2"
+    Precision="50"
+    ColumnName="UNNAMED2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORS_INTERVIEW_PROCESS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Unnamed3"
+    ColumnName="UNNAMED3"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="ORS_INTERVIEW_PROCESS"/>
+  <AccessorAttribute
+    Name="EmployeeEO"
+    Association="oracle.dev.demo.model.entities.SysC004695745Assoc"
+    AssociationEnd="oracle.dev.demo.model.entities.SysC004695745Assoc.EmployeeEO"
+    AssociationOtherEnd="oracle.dev.demo.model.entities.SysC004695745Assoc.InterviewProcessEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CandidateEO"
+    Association="oracle.dev.demo.model.entities.SysC004695746Assoc"
+    AssociationEnd="oracle.dev.demo.model.entities.SysC004695746Assoc.CandidateEO"
+    AssociationOtherEnd="oracle.dev.demo.model.entities.SysC004695746Assoc.InterviewProcessEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="JobEO"
+    Association="oracle.dev.demo.model.entities.SysC004695744Assoc"
+    AssociationEnd="oracle.dev.demo.model.entities.SysC004695744Assoc.JobEO"
+    AssociationOtherEnd="oracle.dev.demo.model.entities.SysC004695744Assoc.InterviewProcessEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC004695743"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C004695743"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.dev.demo.model.entities.InterviewProcessEO.Candidateid"/>
+      <Item Value="oracle.dev.demo.model.entities.InterviewProcessEO.Jobid"/>
+      <Item Value="oracle.dev.demo.model.entities.InterviewProcessEO.Round"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC004695744">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C004695712"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C004695744"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.dev.demo.model.entities.InterviewProcessEO.Jobid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC004695745">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C004695725"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C004695745"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.dev.demo.model.entities.InterviewProcessEO.Employeeid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC004695746">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C004695705"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C004695746"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.dev.demo.model.entities.InterviewProcessEO.Candidateid"/>
+    </AttrArray>
+  </Key>
+</Entity>

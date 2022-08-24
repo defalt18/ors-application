@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="CandidatesPagePageDef"
+                Package="Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CandidatesVO" RangeSize="25" DataControl="ORSPortalAppModuleDataControl"
+              id="CandidatesVOIterator"/>
+    <searchRegion Binds="CandidatesVOIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CandidatesVOQuery"/>
+    <iterator Binds="HistoriesByCId" RangeSize="25" DataControl="ORSPortalAppModuleDataControl"
+              id="HistoriesByCIdIterator"/>
+    <searchRegion Binds="HistoriesByCIdIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="HistoriesByCIdQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CandidatesVOIterator" id="CandidatesVO">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.CandidatesVO" Name="CandidatesVO0">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Contact"/>
+          <Item Value="Firstname"/>
+          <Item Value="Lastname"/>
+          <Item Value="Skillset"/>
+          <Item Value="Unnamed1"/>
+          <Item Value="Unnamed2"/>
+          <Item Value="Unnamed3"/>
+          <Item Value="Username"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="HistoriesByCIdIterator" id="HistoriesByCId">
+      <nodeDefinition DefName="oracle.dev.demo.model.views.CandidateHistoriesVO" Name="HistoriesByCId0">
+        <AttrNames>
+          <Item Value="Candidateid"/>
+          <Item Value="Jobid"/>
+          <Item Value="Roundno"/>
+          <Item Value="Interviewerid"/>
+          <Item Value="Status"/>
+          <Item Value="Feedback"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

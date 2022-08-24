@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="UserTF">
+    <default-activity>UserRouter</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <router id="UserRouter">
+      <case id="__1">
+        <expression>#{sessionScope.UserType == "0"}</expression>
+        <outcome>goToCandidate</outcome>
+      </case>
+      <case id="__2">
+        <expression>#{sessionScope.UserType == "1"}</expression>
+        <outcome>goToEmployee</outcome>
+      </case>
+      <case id="__3">
+        <expression>#{sessionScope.UserType == "2"}</expression>
+        <outcome>goToHR</outcome>
+      </case>
+      <case id="__17">
+        <expression>#{sessionScope.UserType == null}</expression>
+        <outcome>Back</outcome>
+      </case>
+      <default-outcome>goToCandidate</default-outcome>
+    </router>
+    <task-flow-call id="candidateTF">
+      <task-flow-reference>
+        <document>/WEB-INF/candidateTF.xml</document>
+        <id>candidateTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="employeeTF">
+      <task-flow-reference>
+        <document>/WEB-INF/employeeTF.xml</document>
+        <id>employeeTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="hrTF">
+      <task-flow-reference>
+        <document>/WEB-INF/hrTF.xml</document>
+        <id>hrTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-return id="Back">
+      <outcome>
+        <name>Back</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__4">
+      <from-activity-id>UserRouter</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>goToCandidate</from-outcome>
+        <to-activity-id>candidateTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>goToEmployee</from-outcome>
+        <to-activity-id>employeeTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>goToHR</from-outcome>
+        <to-activity-id>hrTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>Back</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>employeeTF</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>Back</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>candidateTF</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>Back</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>hrTF</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>Back</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

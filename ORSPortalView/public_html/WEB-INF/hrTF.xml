@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="hrTF">
+    <default-activity>UserDashboard</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__9">
+      <managed-bean-name>InterviewsPageBean</managed-bean-name>
+      <managed-bean-class>oracle.dev.demo.view.InterviewsFlow</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="UserDashboard">
+      <page>/Pages/UserDashboard.jsf</page>
+    </view>
+    <view id="ApplicationsPage">
+      <page>/Pages/ApplicationsPage.jsf</page>
+    </view>
+    <view id="CandidatesPage">
+      <page>/Pages/CandidatesPage.jsf</page>
+    </view>
+    <view id="InterviewsPage">
+      <page>/Pages/InterviewsPage.jsf</page>
+    </view>
+    <task-flow-call id="LandingTF">
+      <task-flow-reference>
+        <document>/WEB-INF/LandingTF.xml</document>
+        <id>LandingTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-return id="Back">
+      <outcome>
+        <name>Back</name>
+      </outcome>
+    </task-flow-return>
+    <view id="EmployeesPage">
+      <page>/Pages/EmployeesPage.jsf</page>
+    </view>
+    <view id="JobsPage">
+      <page>/Pages/JobsPage.jsf</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>goToDashboard</from-outcome>
+        <to-activity-id>UserDashboard</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>goToCandidates</from-outcome>
+        <to-activity-id>CandidatesPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>goToApplications</from-outcome>
+        <to-activity-id>ApplicationsPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>goToInterviews</from-outcome>
+        <to-activity-id>InterviewsPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>goToPortal</from-outcome>
+        <to-activity-id>LandingTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>goToLogin</from-outcome>
+        <to-activity-id>Back</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>goToEmployees</from-outcome>
+        <to-activity-id>EmployeesPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>goToJobs</from-outcome>
+        <to-activity-id>JobsPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

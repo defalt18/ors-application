@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="oracle.dev.demo.model.services.ORSPortalAppModule">
+    <AppModuleConfig name="ORSPortalAppModuleLocal" jbo.project="oracle.dev.demo.model.ORSPortalModel"
+                     ApplicationName="oracle.dev.demo.model.services.ORSPortalAppModule" DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/ORSDBDS"/>
+      <Security AppModuleJndiName="oracle.dev.demo.model.services.ORSPortalAppModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="ORSPortalAppModuleShared" jbo.project="oracle.dev.demo.model.ORSPortalModel"
+                     ApplicationName="oracle.dev.demo.model.services.ORSPortalAppModule" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/ORSDBDS"/>
+      <Security AppModuleJndiName="oracle.dev.demo.model.services.ORSPortalAppModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

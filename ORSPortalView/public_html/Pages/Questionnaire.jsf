@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Questionnaire.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:resource type="javascript">
+          setTimeout(() =  > window.history.forward(), 0);
+          window.onunload = () =  > null;
+        </af:resource>
+        <af:form id="f2">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow marginTop="10px" height="90%" id="gr1">
+                    <af:gridCell marginStart="10px" width="100%" marginEnd="10px" id="gc1" halign="stretch"
+                                 valign="stretch">
+                        <af:panelBox text="Quiz" id="pb1" inlineStyle="width: 100%" showDisclosure="false">
+                            <af:table value="#{bindings.QuestionsVO1.collectionModel}" var="row"
+                                      inlineStyle="width:100%" rows="#{bindings.QuestionsVO1.rangeSize}"
+                                      emptyText="#{bindings.QuestionsVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.QuestionsVO1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.QuestionsVO1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.QuestionsVO1.rangeSize}"
+                                      filterModel="#{bindings.QuestionsVOQuery.queryDescriptor}" filterVisible="true"
+                                      queryListener="#{bindings.QuestionsVOQuery.processQuery}" varStatus="vs" id="t1"
+                                      width="100%" partialTriggers="::b2" columnStretching="column:c1">
+                                <af:column sortProperty="#{bindings.QuestionsVO1.hints.Questionlevel.name}"
+                                           filterable="true" headerText="Question" id="c1">
+                                    <af:outputText value="#{row.Questionlevel}"
+                                                   shortDesc="#{bindings.QuestionsVO1.hints.Questionlevel.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column headerText="Choices" filterable="true" id="c2">
+                                    <af:selectOneRadio value="#{row.bindings.Choices.inputValue}"
+                                                       label="#{row.bindings.Choices.label}"
+                                                       required="#{bindings.QuestionsVO1.hints.Choices.mandatory}"
+                                                       shortDesc="#{bindings.QuestionsVO1.hints.Choices.tooltip}"
+                                                       id="sor1">
+                                        <f:selectItems value="#{row.bindings.Choices.items}" id="si1"/>
+                                        <f:validator binding="#{row.bindings.Choices.validator}"/>
+                                    </af:selectOneRadio>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.QuestionsVO1.hints.Correct_Response.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.QuestionsVO1.hints.Correct_Response.label}" id="c3"
+                                           rendered="false">
+                                    <af:inputText value="#{row.bindings.Correct_Response.inputValue}"
+                                                  label="#{bindings.QuestionsVO1.hints.Correct_Response.label}"
+                                                  required="#{bindings.QuestionsVO1.hints.Correct_Response.mandatory}"
+                                                  columns="#{bindings.QuestionsVO1.hints.Correct_Response.displayWidth}"
+                                                  maximumLength="#{bindings.QuestionsVO1.hints.Correct_Response.precision}"
+                                                  shortDesc="#{bindings.QuestionsVO1.hints.Correct_Response.tooltip}"
+                                                  id="it1">
+                                        <f:validator binding="#{row.bindings.Correct_Response.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.QuestionsVO1.hints.Correct_Response.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelBox>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="20px" height="10%" marginBottom="10px" id="gr2">
+                    <af:gridCell marginStart="10px" width="100%" marginEnd="10px" id="gc2">
+                        <af:button text="Submit" id="b1" action="#{backingBeanScope.QuestionnarieFlowBean.onSubmit}"/>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+            <!--<af:panelStretchLayout id="psl1" inlineStyle="width: 60%">
+                <f:facet name="bottom">
+                    <af:button text="Submit" id="b1" action="#{backingBeanScope.QuestionnarieFlowBean.onSubmit}"/>
+                </f:facet>
+                <f:facet name="center">
+                    <af:table value="#{bindings.QuestionsVO1.collectionModel}" var="row"
+                              rows="#{bindings.QuestionsVO1.rangeSize}"
+                              emptyText="#{bindings.QuestionsVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.QuestionsVO1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.QuestionsVO1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.QuestionsVO1.rangeSize}"
+                              filterModel="#{bindings.QuestionsVOQuery.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.QuestionsVOQuery.processQuery}" varStatus="vs" id="t1" width="60%"
+                              partialTriggers="::b2" columnStretching="column:c1">
+                        <af:column sortProperty="#{bindings.QuestionsVO1.hints.Questionlevel.name}" filterable="true"
+                                   headerText="Question" id="c1">
+                            <af:outputText value="#{row.Questionlevel}"
+                                           shortDesc="#{bindings.QuestionsVO1.hints.Questionlevel.tooltip}" id="ot1"/>
+                        </af:column>
+                        <af:column headerText="Choices" filterable="true" id="c2">
+                            <af:selectOneRadio value="#{row.bindings.Choices.inputValue}"
+                                               label="#{row.bindings.Choices.label}"
+                                               required="#{bindings.QuestionsVO1.hints.Choices.mandatory}"
+                                               shortDesc="#{bindings.QuestionsVO1.hints.Choices.tooltip}" id="sor1">
+                                <f:selectItems value="#{row.bindings.Choices.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Choices.validator}"/>
+                            </af:selectOneRadio>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.QuestionsVO1.hints.Correct_Response.name}" filterable="true"
+                                   headerText="#{bindings.QuestionsVO1.hints.Correct_Response.label}" id="c3"
+                                   rendered="false">
+                            <af:inputText value="#{row.bindings.Correct_Response.inputValue}"
+                                          label="#{bindings.QuestionsVO1.hints.Correct_Response.label}"
+                                          required="#{bindings.QuestionsVO1.hints.Correct_Response.mandatory}"
+                                          columns="#{bindings.QuestionsVO1.hints.Correct_Response.displayWidth}"
+                                          maximumLength="#{bindings.QuestionsVO1.hints.Correct_Response.precision}"
+                                          shortDesc="#{bindings.QuestionsVO1.hints.Correct_Response.tooltip}" id="it1">
+                                <f:validator binding="#{row.bindings.Correct_Response.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.QuestionsVO1.hints.Correct_Response.format}"/>
+                            </af:inputText>
+                        </af:column>
+                    </af:table>
+                </f:facet>
+                
+            </af:panelStretchLayout>-->
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:QuestionnarieFlowBean-->
+</f:view>

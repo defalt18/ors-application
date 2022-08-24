@@ -1,0 +1,12 @@
+//Groovy Scripts for oracle.dev.demo.model.views.JobsVO
+
+package oracle.dev.demo.model.views
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="check_date")
+def check_date_VariableScript_Variable()
+{
+adf.currentDate
+}
+
