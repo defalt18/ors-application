@@ -7,60 +7,52 @@
       window.onunload = () => null;
     </af:resource>
     <af:document title="Applicant Registration" id="d1">
-        <af:panelGridLayout id="pgl1">
-            <af:gridRow marginTop="0px" height="100%" marginBottom="0px" id="gr1">
-                <af:gridCell marginStart="0px" width="60%" marginEnd="0px" id="gc1" valign="stretch" halign="stretch">
-                    <af:image source="/images/homepage.jpeg" shortDesc="Signup Image" id="i1"
-                              inlineStyle="object-fit: cover;"/>
-                </af:gridCell>
-                <af:gridCell marginStart="0px" width="40%" marginEnd="0px" id="gc2" valign="stretch" halign="stretch">
-                    <af:form id="f1"
-                             inlineStyle="display: flex; align-items: center; flex-direction: column; justify-content: center; gap: 10px; background-color: #fff;">
-                        <h:outputLabel value="Applicant Registration" id="ol1"
-                                       style="font-size:xx-large; font-weight:300; color:#2d70cd; margin: 20px 20px;"/>
-                        <af:inputText label="Username" id="it1" columns="30"
-                                      validator="#{backingBeanScope.SignUpPageBean.usernameValidator}"
-                                      value="#{backingBeanScope.SignUpPageBean.username}"/>
-                        <af:inputText label="Contact" id="it3" columns="30" placeholder="+91 121-324234"
-                                      validator="#{backingBeanScope.SignUpPageBean.contactValidator}"
-                                      value="#{backingBeanScope.SignUpPageBean.phoneNumber}"/>
-                        <af:inputText label="First Name" id="it4" columns="30"
-                                      validator="#{backingBeanScope.SignUpPageBean.firstNameValidator}"
-                                      value="#{backingBeanScope.SignUpPageBean.firstName}"/>
-                        <af:inputText label="Last Name" id="it5" columns="30"
-                                      validator="#{backingBeanScope.SignUpPageBean.lastNameValidator}"
-                                      value="#{backingBeanScope.SignUpPageBean.lastName}"/>
-                        <af:selectManyChoice label="Skills" id="smc1"
-                                             valueChangeListener="#{backingBeanScope.SignUpPageBean.onChangeSkills}">
-                            <af:selectItem label="JAVA" value="JAVA" id="si1"/>
-                            <af:selectItem label="JAVASCRIPT" value="JAVASCRIPT" id="si2"/>
-                            <af:selectItem label="FRONTEND" value="FRONTEND" id="si3"/>
-                            <af:selectItem label="NODE" value="NODE" id="si4"/>
-                            <af:selectItem label="DEVOPS" value="DEVOPS" id="si5"/>
-                            <af:selectItem label="UI / UX" value="UI / UX" id="si6"/>
-                            <af:selectItem label="C++" value="C++" id="si7"/>
-                            <af:selectItem label="PYTHON" value="PYTHON" id="si8"/>
-                            <af:selectItem label="DISTRIBUTED SYSTEMS" value="DISTRIBUTED_SYSTEMS" id="si9"/>
-                            <af:selectItem label="INTEGRATION TECHNOLOGY" value="INTEGRATIONS TECHNOLOGY" id="si10"/>
-                            <af:selectItem label="CYBER SECURITY" value="CYBER SECURITY" id="si11"/>
-                            <af:selectItem label="OPERATING SYSTEMS" value="OPERATING SYSTEMS" id="si12"/>
-                            <af:selectItem label="GRAPHIC DESIGNING" value="GRAPHIC DESIGNING" id="si13"/>
-                            <af:selectItem label="HIGH PERFORMANCE COMPUTING" value="HIGH PERFORMANCE COMPUTING"
-                                           id="si14"/>
-                            <af:selectItem label="SYSTEMS ARCHITECTECTURE" value="SYSTEMS ARCHITECTECTURE" id="si15"/>
-                        </af:selectManyChoice>
-                        <af:inputText label="Password" id="it2" columns="30" secret='true'
-                                      validator="#{backingBeanScope.SignUpPageBean.signUpValidator}"
-                                      value="#{backingBeanScope.SignUpPageBean.password}"/>
-                        <af:button text="Register" id="b1"
-                                   inlineStyle="width:20%; margin-top:20px; text-align:center; background-color:transparent; color:Black; border-radius:8px 8px 8px 8px / 8px 8px 8px 8px ; border-width:1px;"
-                                   action="#{backingBeanScope.SignUpPageBean.onRegister}"/>
-                        <af:link text="Have an account? Log in" id="l1" inlineStyle="margin-top: 10px;"
-                                 action="goToLogin"/>
-                    </af:form>
-                </af:gridCell>
-            </af:gridRow>
-        </af:panelGridLayout>
+        <af:panelGroupLayout id="pgl2">
+            <af:image shortDesc="Login Page" id="i1" source="/images/homepage.jpeg"
+                          inlineStyle="object-fit: cover; height: 100vh; width: 60vw; position: absolute; top:0px; bottom: 0px; right: 0px; z-index: -1;"/>
+            <af:form id="f1"
+                     inlineStyle="display: flex; align-items: center; width: 40%;flex-direction: column; justify-content: center; gap: 10px; background-color: #fff; height: auto; position: absolute; top:0px; bottom: 0px; left: 0px; right: 0px;">
+                <h:outputLabel value="Applicant Registration" id="ol1"
+                               style="font-size:xx-large; font-weight:300; color:#2d70cd; margin: 20px 20px;"/>
+                <af:inputText label="Username" id="it1" columns="30"
+                              validator="#{backingBeanScope.SignUpPageBean.usernameValidator}"
+                              value="#{backingBeanScope.SignUpPageBean.username}"/>
+                <af:inputText label="Contact" id="it3" columns="30" placeholder="+91 121-324234"
+                              validator="#{backingBeanScope.SignUpPageBean.contactValidator}"
+                              value="#{backingBeanScope.SignUpPageBean.phoneNumber}"/>
+                <af:inputText label="First Name" id="it4" columns="30"
+                              validator="#{backingBeanScope.SignUpPageBean.firstNameValidator}"
+                              value="#{backingBeanScope.SignUpPageBean.firstName}"/>
+                <af:inputText label="Last Name" id="it5" columns="30"
+                              validator="#{backingBeanScope.SignUpPageBean.lastNameValidator}"
+                              value="#{backingBeanScope.SignUpPageBean.lastName}"/>
+                <af:selectManyChoice label="Skills" id="smc1"
+                                     valueChangeListener="#{backingBeanScope.SignUpPageBean.onChangeSkills}">
+                    <af:selectItem label="JAVA" value="JAVA" id="si1"/>
+                    <af:selectItem label="JAVASCRIPT" value="JAVASCRIPT" id="si2"/>
+                    <af:selectItem label="FRONTEND" value="FRONTEND" id="si3"/>
+                    <af:selectItem label="NODE" value="NODE" id="si4"/>
+                    <af:selectItem label="DEVOPS" value="DEVOPS" id="si5"/>
+                    <af:selectItem label="UI / UX" value="UI / UX" id="si6"/>
+                    <af:selectItem label="C++" value="C++" id="si7"/>
+                    <af:selectItem label="PYTHON" value="PYTHON" id="si8"/>
+                    <af:selectItem label="DISTRIBUTED SYSTEMS" value="DISTRIBUTED_SYSTEMS" id="si9"/>
+                    <af:selectItem label="INTEGRATION TECHNOLOGY" value="INTEGRATIONS TECHNOLOGY" id="si10"/>
+                    <af:selectItem label="CYBER SECURITY" value="CYBER SECURITY" id="si11"/>
+                    <af:selectItem label="OPERATING SYSTEMS" value="OPERATING SYSTEMS" id="si12"/>
+                    <af:selectItem label="GRAPHIC DESIGNING" value="GRAPHIC DESIGNING" id="si13"/>
+                    <af:selectItem label="HIGH PERFORMANCE COMPUTING" value="HIGH PERFORMANCE COMPUTING" id="si14"/>
+                    <af:selectItem label="SYSTEMS ARCHITECTECTURE" value="SYSTEMS ARCHITECTECTURE" id="si15"/>
+                </af:selectManyChoice>
+                <af:inputText label="Password" id="it2" columns="30" secret='true'
+                              validator="#{backingBeanScope.SignUpPageBean.signUpValidator}"
+                              value="#{backingBeanScope.SignUpPageBean.password}"/>
+                <af:button text="Register" id="b1"
+                           inlineStyle="width:20%; margin-top:20px; text-align:center; background-color:transparent; color:Black; border-radius:8px 8px 8px 8px / 8px 8px 8px 8px ; border-width:1px;"
+                           action="#{backingBeanScope.SignUpPageBean.onRegister}"/>
+                <af:link text="Have an account? Log in" id="l1" inlineStyle="margin-top: 10px;" action="goToLogin"/>
+            </af:form>
+        </af:panelGroupLayout>
     </af:document>
     <!--oracle-jdev-comment:preferred-managed-bean-name:SignUpPageBean-->
 </f:view>
