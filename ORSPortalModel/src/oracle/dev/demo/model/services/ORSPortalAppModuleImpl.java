@@ -452,7 +452,7 @@ public class ORSPortalAppModuleImpl extends ApplicationModuleImpl {
         ViewObject jobsVO = getJobsVO();
         ViewObject employeesVO = getEmployeesVO();
         Integer jobLevel = 0;
-        String availableEmpId = null;
+        String availableEmpId = "";
 
         try {
             employeesVO.setWhereClause("employeeid = " + empId);
@@ -495,8 +495,8 @@ public class ORSPortalAppModuleImpl extends ApplicationModuleImpl {
 
                     if (status.equals("Completed")) {
                         if (round < 3) {
-                            System.out.print("Round : " + round);
                             availableEmpId = findAvailableEmployeeWithMinExperience(jobLevel, Integer.parseInt(empId));
+                            
                             Integer empIdToInsert =
                                 availableEmpId != null ? Integer.parseInt(availableEmpId) : 101102; // HR
                             String statusToInsert = availableEmpId != null ? "Ready" : "Pending";
@@ -551,10 +551,12 @@ public class ORSPortalAppModuleImpl extends ApplicationModuleImpl {
 
             }
             this.getDBTransaction().commit();
-            if (availableEmpId == null && round < 3) {
+            
+            if (availableEmpId == null) {
                 response.setRedirect("goToInterviews");
                 throw new Exception("Interviewers not avialable. Try again later!");
             }
+            
         } catch (Exception e) {
             response.setError(e);
             return response;
